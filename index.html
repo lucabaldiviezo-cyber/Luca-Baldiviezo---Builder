@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Luca Baldiviezo</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
-        /* Paleta personalizada basada en componentes oscuros y crimson */
+        /* Paleta y clases personalizadas originales */
         .bg-crimson-600 { background-color: #dc2626; }
         .hover\:bg-crimson-700:hover { background-color: #b91c1c; }
         .text-crimson-400 { color: #f87171; }
@@ -15,9 +14,7 @@
 </head>
 <body class="bg-neutral-950 text-neutral-100 min-h-screen font-sans selection:bg-crimson-600 selection:text-white">
 
-    <!-- CONTENEDOR PRINCIPAL / CONTENIDO DEL PORTFOLIO -->
     <main class="max-w-4xl mx-auto px-6 py-12">
-        <!-- Encabezado Principal -->
         <header class="mb-16 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6 border-b border-neutral-900 pb-10">
             <div>
                 <h1 class="text-4xl font-bold tracking-tight bg-gradient-to-r from-white to-neutral-500 bg-clip-text text-transparent">Luca Baldiviezo</h1>
@@ -29,14 +26,12 @@
                 </div>
             </div>
             
-            <!-- Botón Disparador del Chatbot -->
             <button onclick="abrirPanel()" class="flex items-center space-x-2 bg-neutral-900 border border-neutral-800 hover:border-neutral-700 text-neutral-200 px-5 py-2.5 rounded-xl text-xs font-medium tracking-wide transition-all shadow-sm cursor-pointer group">
                 <span>Preguntarle a LucAI</span>
                 <span class="text-crimson-400 group-hover:translate-x-1 transition-transform">→</span>
             </button>
         </header>
 
-        <!-- Sección de Proyectos Simulada en la Web -->
         <section class="mb-12">
             <h2 class="text-lg font-semibold tracking-wide mb-6 text-neutral-200">Proyectos Destacados</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -52,13 +47,10 @@
         </section>
     </main>
 
-    <!-- COMPONENTE: PANEL FLOTANTE DEL CHATBOT (LucAI) -->
     <div id="chatPanel" class="fixed inset-0 bg-black/60 backdrop-blur-xs opacity-0 pointer-events-none transition-opacity duration-300 z-50 flex justify-end">
         
-        <!-- Contenedor del Panel -->
         <div id="chatContent" class="w-full max-w-md bg-neutral-950 border-l border-neutral-900 h-full flex flex-col justify-between translate-x-full transition-transform duration-300 ease-out shadow-2xl">
             
-            <!-- Encabezado del Chat -->
             <div class="p-4 border-b border-neutral-900 flex items-center justify-between bg-neutral-950">
                 <div class="flex items-center space-x-3">
                     <div class="w-8 h-8 rounded-full bg-crimson-600/10 border border-crimson-600/20 flex items-center justify-center text-sm">🤖</div>
@@ -72,16 +64,13 @@
                 <button onclick="cerrarPanel()" class="text-neutral-400 hover:text-white text-sm p-1 cursor-pointer transition-colors">✕</button>
             </div>
 
-            <!-- Cuerpo del Chat / Mensajes -->
             <div id="chatBody" class="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin">
                 
-                <!-- Pantalla de Bienvenida con Sugerencias -->
                 <div id="chatWelcome" class="space-y-6 py-4">
                     <div class="text-center space-y-2">
                         <p class="text-neutral-300 text-xs font-light px-4 leading-relaxed">¡Hola! Soy LucAI, el asistente automatizado del portfolio de Luca. ¿Qué te gustaría saber sobre él?</p>
                     </div>
                     
-                    <!-- Sugerencias de Clic Rápido -->
                     <div class="space-y-2">
                         <p class="text-[10px] uppercase text-neutral-500 tracking-wider font-semibold">Consultas sugeridas</p>
                         <div class="flex flex-col gap-2">
@@ -93,10 +82,8 @@
                     </div>
                 </div>
 
-                <!-- Contenedor Dinámico para Mensajes del Historial -->
                 <div id="dynamicMessages" class="space-y-4 hidden"></div>
 
-                <!-- Indicador de Carga (Efecto Pensando) -->
                 <div id="loadingIndicator" class="flex items-start space-x-2.5 hidden">
                     <div class="w-7 h-7 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-xs">🤖</div>
                     <div class="bg-neutral-900 border border-neutral-800 px-3.5 py-2 rounded-2xl rounded-tl-none flex space-x-1 items-center h-8">
@@ -107,7 +94,6 @@
                 </div>
             </div>
 
-            <!-- Entrada de Texto / Input del Chat -->
             <div class="p-3 border-t border-neutral-900 bg-neutral-950 flex items-center gap-2">
                 <input type="text" id="chatInput" onkeypress="manejarKeyPress(e || event)" placeholder="Escribí tu mensaje acá..." class="flex-1 bg-neutral-900 border border-neutral-800/80 text-neutral-200 placeholder-neutral-500 rounded-xl px-3 py-2.5 text-xs font-light tracking-wide focus:outline-none focus:border-neutral-700 transition-colors">
                 <button onclick="enviarMensajeInput()" class="bg-crimson-600 hover:bg-crimson-700 text-white w-9 h-9 rounded-xl flex items-center justify-center transition-colors shadow-sm cursor-pointer shrink-0">
@@ -120,7 +106,6 @@
         </div>
     </div>
 
-    <!-- SCRIPT DE LOGICA Y RESPUESTAS DEL CHATBOT -->
     <script>
         const chatPanel = document.getElementById('chatPanel');
         const chatContent = document.getElementById('chatContent');
@@ -130,7 +115,7 @@
         const dynamicMessages = document.getElementById('dynamicMessages');
         const loadingIndicator = document.getElementById('loadingIndicator');
 
-        // Tu Diccionario Original de Respuestas Locales Recuperado por Completo
+        // Tu diccionario de respuestas al completo
         const RESPUESTAS_LOCALES = {
             "contacto": "Podés contactar a Luca a través de su correo electrónico o redes sociales si activás el Modo Reclutador.",
             "perfil": "Luca es un desarrollador y estudiante de ingeniería de software de 22 años, enfocado en el desarrollo con Python y la integración de Inteligencia Artificial.",
@@ -266,7 +251,7 @@
             const textoNormalizado = texto.toLowerCase().trim();
             let respuestaBot = null;
 
-            // Búsqueda inteligente por coincidencia de palabras clave
+            // Búsqueda por coincidencia
             for (const clave in RESPUESTAS_LOCALES) {
                 if (textoNormalizado.includes(clave.toLowerCase())) {
                     respuestaBot = RESPUESTAS_LOCALES[clave];
