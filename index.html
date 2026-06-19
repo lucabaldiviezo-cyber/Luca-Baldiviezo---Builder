@@ -9,7 +9,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700&family=Syne:wght=700;800&family=Lora:ital,wght=0,400..750;1,400..750&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700&family=Syne:wght=700;800&family=Lora:ital,wght@0,400..750;1,400..750&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <script>
@@ -373,164 +373,285 @@
         </div>
     </section>
 
-    <div id="chatPanel" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex justify-end items-stretch opacity-0 pointer-events-none transition-opacity duration-300">
-        <div id="chatContent" class="w-full max-w-md bg-neutral-950 border-l border-neutral-800 flex flex-col justify-between translate-x-full transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]">
+    <section id="proyectos" class="bg-neutral-900/40 border-t border-neutral-900 py-24 reveal">
+        <div class="max-w-7xl mx-auto px-8 md:px-16">
+            <div class="mb-16">
+                <span class="text-[10px] font-bold text-crimson-500 uppercase tracking-widest">Proyectos</span>
+                <h2 class="text-3xl font-extrabold text-white font-title mt-2">Trabajos Realizados</h2>
+            </div>
             
-            <div class="p-4 border-b border-neutral-900 bg-neutral-950/80 flex justify-between items-center">
-                <div class="flex items-center space-x-3">
-                    <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-crimson-600 to-red-500 flex items-center justify-center text-white text-base shadow-md font-black tracking-tight animate-float">🤖</div>
-                    <div>
-                        <h4 class="text-xs font-bold font-title text-white tracking-wide">LucAI Agent</h4>
-                        <div class="flex items-center space-x-1"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span><span class="text-[9px] font-mono tracking-widest uppercase text-neutral-400 font-bold">En Línea</span></div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group bg-neutral-950 border border-neutral-800/80 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1.5 hover:border-crimson-500/40">
+                    <div class="w-11 h-11 bg-crimson-950/60 border border-crimson-500/20 rounded-xl flex items-center justify-center text-crimson-400 mb-6 group-hover:bg-crimson-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-car text-base"></i>
                     </div>
+                    <h3 class="text-lg font-bold font-title text-white mb-2">Munafó Automóviles</h3>
+                    <p class="text-xs text-neutral-400 font-light leading-relaxed">CRM, Gestión de stock y automatización de embudos vinculados directamente a tu app.</p>
                 </div>
-                <button onclick="cerrarPanel()" class="w-7 h-7 flex items-center justify-center rounded-lg bg-neutral-900 border border-neutral-800/60 hover:border-crimson-500/40 text-neutral-400 hover:text-white transition-all duration-200 cursor-pointer"><i class="fa-solid fa-xmark text-xs"></i></button>
+                <div class="group bg-neutral-950 border border-neutral-800/80 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1.5 hover:border-crimson-500/40">
+                    <div class="w-11 h-11 bg-crimson-950/60 border border-crimson-500/20 rounded-xl flex items-center justify-center text-crimson-400 mb-6 group-hover:bg-crimson-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-file-excel text-base"></i>
+                    </div>
+                    <h3 class="text-lg font-bold font-title text-white mb-2">Industrias Paladino</h3>
+                    <p class="text-xs text-neutral-400 font-light leading-relaxed">Conversión automática de planillas Excel masivas a módulos dinámicos limpios.</p>
+                </div>
+                <div class="group bg-neutral-950 border border-neutral-800/80 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1.5 hover:border-crimson-500/40">
+                    <div class="w-11 h-11 bg-crimson-950/60 border border-crimson-500/20 rounded-xl flex items-center justify-center text-crimson-400 mb-6 group-hover:bg-crimson-500 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-layer-group text-base"></i>
+                    </div>
+                    <h3 class="text-lg font-bold font-title text-white mb-2">OMP</h3>
+                    <p class="text-xs text-neutral-400 font-light leading-relaxed">Consolidación integral de sistemas, cuentas corrientes y facturación instantánea.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reseñas" class="max-w-7xl mx-auto px-8 md:px-16 py-24 reveal">
+        <h2 class="text-3xl font-extrabold text-white font-title mb-16 text-center md:text-left">Que Opinan Nuestros Clientes</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-neutral-900/20 p-8 rounded-2xl border border-neutral-900 space-y-6">
+                <p class="text-neutral-400 font-light text-xs leading-relaxed">"Trabajar juntos fue una experiencia muy clara y ordenada. Siempre tuve respuestas rápidas y un acompañamiento cercano."</p>
+                <div>
+                    <div class="font-bold text-xs text-white font-title">Matías Munafó</div>
+                    <div class="text-[10px] text-crimson-400 font-mono mt-0.5">Munafó Automóviles</div>
+                </div>
+            </div>
+            <div class="bg-neutral-900/20 p-8 rounded-2xl border border-neutral-900 space-y-6">
+                <p class="text-neutral-400 font-light text-xs leading-relaxed">"Destaco la rapidez y la paciencia con la que me guiaron. Gracias a su visión pude tomar decisiones clave sobre el rumbo de mi proyecto."</p>
+                <div>
+                    <div class="font-bold text-xs text-white font-title">Lucas Abriata</div>
+                    <div class="text-[10px] text-crimson-400 font-mono mt-0.5">Socio Fundador</div>
+                </div>
+            </div>
+            <div class="bg-neutral-900/20 p-8 rounded-2xl border border-neutral-900 space-y-6">
+                <p class="text-neutral-400 font-light text-xs leading-relaxed">"Lo que más valoro es que logramos superar barreras que parecían imposibles. La dedicación técnica marcó toda la diferencia."</p>
+                <div>
+                    <div class="font-bold text-xs text-white font-title">Erick Herrera</div>
+                    <div class="text-[10px] text-crimson-400 font-mono mt-0.5">Blue Rent a Car</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="bg-neutral-950 py-28 border-t border-neutral-900 text-center relative overflow-hidden reveal">
+        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-crimson-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-3xl mx-auto px-8 space-y-8 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white font-title tracking-tight">Nosotros no usamos un formulario aburrido.</h2>
+            <p class="text-neutral-400 text-xs md:text-sm font-light max-w-xl mx-auto leading-relaxed">
+                Hablá directamente con nuestro chat inteligente. Nuestra IA se va a encargar de hacerte las preguntas necesarias, ofrecerte opciones y conectarte con nosotros.
+            </p>
+            <div class="pt-4">
+                <button onclick="abrirPanel()" class="bg-crimson-500 text-white font-bold text-xs tracking-widest uppercase px-8 py-4 rounded-md hover:bg-crimson-600 transition-all duration-300 shadow-xl shadow-crimson-500/20 flex items-center space-x-3 mx-auto group cursor-pointer">
+                    <i class="fa-solid fa-wave-square animate-pulse"></i>
+                    <span>Hablar con la IA</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-[9px] tracking-widest text-neutral-600 font-mono border-t border-neutral-900 uppercase">
+        &copy; LucAI — Desarrolado por Luca Baldiviezo.
+    </footer>
+
+
+    <div id="command-overlay" class="hidden fixed inset-0 bg-black/70 backdrop-blur-xl z-50 flex items-center justify-center p-4">
+        <div id="command-panel" class="bg-[#121214] w-full max-w-xl h-[560px] rounded-[28px] shadow-[0_30px_80px_rgba(0,0,0,0.9)] border border-neutral-800 flex flex-col overflow-hidden opacity-0 scale-95 transition-all duration-300">
+            
+            <div class="p-4 px-5 flex justify-between items-center bg-transparent border-b border-neutral-900">
+                <div class="flex items-center gap-1.5 opacity-80">
+                    <div class="w-2 h-2 bg-crimson-500 rounded-full animate-pulse"></div>
+                    <span class="text-[10px] font-mono tracking-wider uppercase text-neutral-400">LucAI — Asistente</span>
+                </div>
+                <div class="flex items-center gap-1 text-neutral-500">
+                    <button id="btn-reset-chat" title="Reiniciar chat" class="hover:text-neutral-300 p-1.5 rounded-lg hover:bg-neutral-900 transition cursor-pointer">
+                        <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                    </button>
+                    <button id="btn-close-command" title="Cerrar (Esc)" class="hover:text-neutral-300 p-1.5 rounded-lg hover:bg-neutral-900 transition cursor-pointer">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
             </div>
 
-            <div id="chatBody" class="flex-1 p-5 overflow-y-auto space-y-4 no-scrollbar bg-neutral-950/20">
+            <div id="chat-messages" class="flex-1 overflow-y-auto px-6 pb-4 no-scrollbar flex flex-col justify-between">
                 
-                <div id="chatWelcome" class="text-center py-6 px-2 space-y-3">
-                    <div class="w-10 h-10 rounded-2xl bg-crimson-950/50 border border-crimson-500/20 flex items-center justify-center mx-auto text-xl shadow-inner">⚡</div>
-                    <h5 class="text-xs font-bold text-white tracking-wide font-title">¿Qué te gustaría automatizar?</h5>
-                    <p class="text-neutral-400 text-[11px] font-light max-w-xs mx-auto leading-relaxed">Hacé una pregunta rápida o seleccioná sugerencias para probar las respuestas en tiempo real del bot.</p>
-                </div>
+                <div id="chat-welcome" class="flex-1 flex flex-col items-center justify-center text-center my-auto transition-all duration-300">
+                    <div class="mb-4 animate-float relative flex items-center justify-center w-14 h-14 bg-neutral-900 border border-neutral-800 rounded-2xl shadow-inner">
+                        <i data-lucide="bot" class="w-7 h-7 text-crimson-500"></i>
+                    </div>
 
-                <div id="dynamicMessages" class="space-y-4 hidden"></div>
-
-                <div id="loadingIndicator" class="flex items-start space-x-2.5 hidden">
-                    <div class="w-7 h-7 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-xs">🤖</div>
-                    <div class="bg-neutral-900/60 border border-neutral-800/80 px-3.5 py-2 rounded-2xl text-[11px] text-neutral-400 tracking-wide font-light flex items-center space-x-1 shadow-sm">
-                        <span class="w-1 h-1 bg-neutral-500 rounded-full animate-bounce" style="animation-delay: 0ms"></span>
-                        <span class="w-1 h-1 bg-neutral-500 rounded-full animate-bounce" style="animation-delay: 150ms"></span>
-                        <span class="w-1 h-1 bg-neutral-500 rounded-full animate-bounce" style="animation-delay: 300ms"></span>
+                    <h2 class="text-3xl font-serifElegant font-medium text-white mb-1.5 tracking-wide">¡Hola!, ¿Cómo estás?</h2>
+                    <p class="text-neutral-400 text-xs font-medium mb-6">Preguntame lo que quieras sobre nuestro sistema y automatizaciones</p>
+                    
+                    <div class="w-full max-w-md space-y-2">
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="enviarSugerencia('¿Quién es Luca?')" class="py-2.5 px-3 bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 rounded-xl text-xs text-neutral-300 font-medium transition duration-200 cursor-pointer flex items-center justify-center gap-2">
+                                <i data-lucide="user" class="w-3.5 h-3.5 text-neutral-500"></i> ¿Quién es Luca?
+                            </button>
+                            <button onclick="enviarSugerencia('¿Qué proyectos tiene?')" class="py-2.5 px-3 bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 rounded-xl text-xs text-neutral-300 font-medium transition duration-200 cursor-pointer flex items-center justify-center gap-2">
+                                <i data-lucide="folder" class="w-3.5 h-3.5 text-neutral-500"></i> ¿Qué proyectos tiene?
+                            </button>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="enviarSugerencia('¿Qué tecnologías usa?')" class="py-2.5 px-3 bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 rounded-xl text-xs text-neutral-300 font-medium transition duration-200 cursor-pointer flex items-center justify-center gap-2">
+                                <i data-lucide="code" class="w-3.5 h-3.5 text-neutral-500"></i> ¿Qué tecnologías usa?
+                            </button>
+                            <button onclick="enviarSugerencia('Hablemos sobre su educación')" class="py-2.5 px-3 bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 rounded-xl text-xs text-neutral-300 font-medium transition duration-200 cursor-pointer flex items-center justify-center gap-2">
+                                <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-neutral-500"></i> Su educación
+                            </button>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="enviarSugerencia('Activar modo reclutador')" class="py-2.5 px-3 bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 rounded-xl text-xs text-neutral-300 font-medium transition duration-200 cursor-pointer flex items-center justify-center gap-2">
+                                <i data-lucide="briefcase" class="w-3.5 h-3.5 text-neutral-500"></i> Modo reclutador
+                            </button>
+                            <button onclick="document.getElementById('chat-input').focus()" class="py-2.5 px-3 bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 rounded-xl text-xs text-neutral-300 font-medium transition duration-200 cursor-pointer flex items-center justify-center gap-2">
+                                <i data-lucide="send" class="w-3.5 h-3.5 text-neutral-500"></i> Enviar mensaje
+                            </button>
+                        </div>
                     </div>
                 </div>
+
+                <div id="dynamic-messages" class="space-y-4 pt-4 hidden w-full"></div>
+
+                <div id="loading-indicator" class="hidden flex justify-start pt-2">
+                    <div class="bg-neutral-900 border border-neutral-800 px-4 py-2.5 rounded-2xl text-neutral-400 text-xs flex items-center gap-1.5 shadow-sm">
+                        <span class="flex gap-1">
+                            <span class="w-1.5 h-1.5 bg-neutral-500 rounded-full animate-bounce" style="animation-delay: 0ms"></span>
+                            <span class="w-1.5 h-1.5 bg-neutral-500 rounded-full animate-bounce" style="animation-delay: 150ms"></span>
+                            <span class="w-1.5 h-1.5 bg-neutral-500 rounded-full animate-bounce" style="animation-delay: 300ms"></span>
+                        </span>
+                        <span class="ml-1 text-neutral-500 font-medium">Procesando...</span>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="p-4 border-t border-neutral-900 bg-neutral-950">
-                <div class="flex flex-wrap gap-1.5 mb-3">
-                    <button onclick="enviarSugerencia('¿Qué es LucAI?')" class="text-[10px] bg-neutral-900 hover:bg-crimson-950/20 text-neutral-400 hover:text-crimson-400 border border-neutral-800/60 hover:border-crimson-500/30 px-2.5 py-1 rounded-lg font-medium transition-all cursor-pointer">¿Qué es LucAI?</button>
-                    <button onclick="enviarSugerencia('¿Cuánto cuesta un sistema?')" class="text-[10px] bg-neutral-900 hover:bg-crimson-950/20 text-neutral-400 hover:text-crimson-400 border border-neutral-800/60 hover:border-crimson-500/30 px-2.5 py-1 rounded-lg font-medium transition-all cursor-pointer">Precios</button>
-                    <button onclick="enviarSugerencia('¿Cómo se conecta a WhatsApp?')" class="text-[10px] bg-neutral-900 hover:bg-crimson-950/20 text-neutral-400 hover:text-crimson-400 border border-neutral-800/60 hover:border-crimson-500/30 px-2.5 py-1 rounded-lg font-medium transition-all cursor-pointer">WhatsApp</button>
-                </div>
-                <div class="flex space-x-2">
-                    <input type="text" id="chatInput" placeholder="Escribí tu mensaje..." onkeypress="manejarKeyPress(event)" class="flex-1 bg-neutral-900/60 border border-neutral-800 focus:border-crimson-500/50 rounded-xl px-3.5 text-xs text-white placeholder-neutral-500 focus:outline-none tracking-wide transition-colors">
-                    <button onclick="enviarMensajeInput()" class="w-9 h-9 rounded-xl bg-crimson-500 hover:bg-crimson-600 border border-crimson-600 text-white flex items-center justify-center transition-all cursor-pointer shadow-md shadow-crimson-500/10"><i class="fa-solid fa-paper-plane text-xs"></i></button>
-                </div>
+            <div class="p-4 px-6 bg-transparent border-t border-neutral-900">
+                <form id="chat-form" class="flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-2xl px-4 py-3 focus-within:border-neutral-700 transition-all duration-200">
+                    <input
+                        id="chat-input"
+                        type="text"
+                        placeholder="¿Cuál es tu duda?"
+                        autocomplete="off"
+                        class="bg-transparent flex-1 outline-none text-sm text-white placeholder-neutral-500 w-full font-medium"
+                    />
+                    <button type="submit" class="w-7 h-7 bg-neutral-800 hover:bg-neutral-700 hover:text-white text-neutral-400 rounded-full flex items-center justify-center transition cursor-pointer" title="Enviar">
+                        <i data-lucide="arrow-up" class="w-4 h-4"></i>
+                    </button>
+                </form>
             </div>
 
         </div>
     </div>
 
-    <script>
-        const chatPanel = document.getElementById('chatPanel');
-        const chatContent = document.getElementById('chatContent');
-        const chatBody = document.getElementById('chatBody');
-        const chatInput = document.getElementById('chatInput');
-        const chatWelcome = document.getElementById('chatWelcome');
-        const dynamicMessages = document.getElementById('dynamicMessages');
-        const loadingIndicator = document.getElementById('loadingIndicator');
 
-        // DICCIONARIO DE RESPUESTAS LOCALES 
+    <script>
+        // Inicialización de Iconos Lucide
+        lucide.createIcons();
+
+        // Elementos del DOM
+        const btnCloseCommand = document.getElementById('btn-close-command');
+        const btnResetChat = document.getElementById('btn-reset-chat');
+        const commandOverlay = document.getElementById('command-overlay');
+        const commandPanel = document.getElementById('command-panel');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const dynamicMessages = document.getElementById('dynamic-messages');
+        const loadingIndicator = document.getElementById('loading-indicator');
+        const chatMessagesArea = document.getElementById('chat-messages');
+        const chatWelcome = document.getElementById('chat-welcome');
+
+        // Configuración de API del bot
+        const API_URL = 'http://localhost:8000/api/chat';
+        let escribiendoEfecto = false;
+
         const RESPUESTAS_LOCALES = {
-            'hola': "¡Hola! Soy LucAI. Estoy acá para automatizar los flujos repetitivos de tu negocio y ahorrarte horas de trabajo manual. ¿Qué tipo de sistema estás necesitando?",
-            'buenas': "¡Hola! ¿Cómo va? Soy el asistente virtual de LucAI. Decime qué te gustaría automatizar hoy.",
-            'precio': "Cada sistema es único y diseñado 100% a medida. El presupuesto final depende de la complejidad y las herramientas que necesitemos integrar. ¿Te gustaría que coordinemos una llamada de diagnóstico gratuita?",
-            'cuanto cuesta': "Los presupuestos varías según el desarrollo. Si querés, contame de qué es tu negocio y armamos un boceto del sistema ideal para vos.",
-            'costo': "Para darte un costo exacto lo ideal es relevar tus necesidades en una breve llamada de 10 minutos sin compromiso. ¿Te gustaría agendarla?",
-            'whatsapp': "Integramos tus canales de WhatsApp con modelos avanzados de Inteligencia Artificial para que respondan dudas, filtren prospectos y agenden clientes de forma automatizada 24/7.",
-            'secreto': "Has descubierto el secreto de El ángel caído. Un terrestre con un poder extraordinario... ⚡",
-            'jazmin': "¡Hola Jazmín! Luca me configuró especialmente para decirte que sos la persona más importante en su vida y que este sistema también te cuida a vos. ❤️",
-            'jazmín': "¡Hola Jazmín! Luca me configuró especialmente para decirte que sos la persona más importante en su vida y que este sistema también te cuida a vos. ❤️",
-            'que es lucai': "LucAI es una agencia de desarrollo enfocada en crear software de automatización e Inteligencia Artificial a medida para negocios que quieren escalar y liberar tiempo operativo."
+            "contacto": "Podés contactar a Luca a través de su correo electrónico o redes sociales si activás el Modo Reclutador.",
+            "perfil": "Luca es un desarrollador y estudiante de ingeniería de software de 22 años, enfocado en el desarrollo con Python y la integración de Inteligencia Artificial.",
+            "stack": "El núcleo tecnológico de Luca se centra en Python, desarrollo de scripts de automatización y diseño de lógica para IA.",
+            "enfoque": "Luca cuenta con la capacidad de comprender tanto la lógica de negocio en el Backend como la integración de interfaces en el Frontend.",
+            "logica": "Luca posee una sólida base en pensamiento analítico, diseño de algoritmos eficientes y estructuras de datos complejas.",
+            "programacion": "Luca posee una sólida base en pensamiento analítico, diseño de algoritmos eficientes y estructuras de datos complejas.",
+            "resolucion": "Luca aplica un enfoque metódico para el debugging, la optimización de código y la resolución de fallas en entornos de desarrollo.",
+            "bugs": "Luca aplica un enfoque metódico para el debugging, la optimización de código y la resolución de fallas en entornos de desarrollo.",
+            "proyectos": "Luca diseña y ejecuta herramientas prácticas orientadas a la automatización de procesos y el procesamiento inteligente de datos.",    
+            "aprendizaje": "Luca se mantiene actualizado de manera autodidacta mediante la documentación técnica y las últimas tendencias en ingeniería de software.",
+            "autonomo": "Luca se mantiene actualizado de manera autodidacta mediante la documentación técnica y las últimas tendencias en ingeniería de software.",    
+            "herramientas": "Luca domina el uso de entornos de desarrollo (IDEs), sistemas de control de versiones y metodologías ágiles de software.",
+            "hardware": "Luca posee competencias avanzadas en hardware de PC, ensamble y arquitectura de sistemas para optimizar entornos de desarrollo locales.",
+            "metas": "El objetivo de Luca es integrarse a equipos de desarrollo donde pueda implementar modelos de machine learning y arquitecturas Full Stack escalables.",
+            "trabajo equipo": "Luca colabora eficientemente con designers, ingenieros de datos y equipos de QA para asegurar entregas de software de alta calidad.",
+            "adaptabilidad tecnologica": "Luca asimila con rapidez nuevos lenguajes de programación, frameworks y herramientas que el proyecto requiera.",
+            "optimizacion codigo": "Luca prioriza la escritura de código limpio, mantenible y documentado, siguiendo las buenas prácticas de la industria (Clean Code).",
+            "mama": "La madre de Luca es Mili Baldiviezo, quien representa un pilar fundamental en su vida y desarrollo personal.",
+            "madre": "La madre de Luca es Mili Baldiviezo, quien representa un pilar fundamental en su vida y desarrollo personal.",
+            "mamá": "La madre de Luca es Mili Baldiviezo, quien representa un pilar fundamental en su vida y desarrollo personal.",
+            "hermanos": "Luca tiene dos hermanos, Ivo Baldiviezo e Ivan Baldiviezo, con quienes comparte un fuerte vínculo familiar.",
+            "pareja": "La mujer de Luca es Jazmin Villafañes, a quien ama profundamente y es su compañera de vida y principal apoyo en sus proyectos.",
+            "valores personales": "El entorno familiar compuesto por Mili, Ivo, Ivan y su pareja Jazmin constituye el motor diario de superación y compromiso profesional de Luca.",
+            "hola": "¡Hola! ¿Cómo estás? Contame, ¿en qué te puedo ayudar hoy respecto a Luca?",
+            "cv": "Luca preparó su CV orientado al sector de Programación e Inteligencia Artificial.",
+            "Jazmin": "El amor de su vida, su mujer, su motivacion, su bebe, su amor, y los adjetivos que faltan, para simplificarlo Jazmin es la razon por la que sonrie cada dia. La ama, ama.",
+            "luca me ama?": "Eso depende, ¿te llamás Jazmin Villafañes? Si es así entonces sí y mucho, solo habla de vos el boludo.",
+            "quien es jazmin?": "Jazmin Villafañes es el amor de la vida de Luca, la futura esposa y futura madre de los hijos de él.",
+            "hobbie": "En sus tiempos libres, a Luca le interesa mucho el fútbol, el arte del tatuaje y está enfocado con la programación en Python enfocada en IA.",
+            "secreto": "Encontraste un comando oculto. Luca es conocido por algunos como 'El ángel caído' debido a sus grandes capacidades.",
+            "¿quién es luca?": "Luca Baldiviezo es un desarrollador fullstack de 23 años oriundo de Salta, Argentina. Combina su formacion en TECLAB con un fuerte perfil autodidacta. Se especializa en frontend y en ingenieria de inteligencia Artificial, creando productos completos e integrando IA generativa de manera estratégica para aportar valor real.",
+            "¿qué proyectos tiene?": "Luca cuenta con varios proyectos en su portafolio, incluyendo este mismo asistente inteligente (LucAI), calculadoras funcionales en Python y sistemas de automatización. 1) Asistente de IA de servcios, Un agente conversacional inteligente y autónomo integrado en su web. 2) Diseñador Web, Creo el sitio que tu negocio necesita para vender más. 3) Creador y fundador de LucAI, Un asistente de IA integrado en su portfolio para responder preguntas sobre sus proyectos, stack y experiencia.",
+            "¿qué tecnologías usa?": "Domina principalmente Python enfocado en IA, JavaScript, HTML, CSS, Tailwind CSS para interfaces modernas y herramientas de desarrollo backend.",
+            "hablame sobre su educación": "Luca se encuentra en constante formación autodidacta y guiada, especializándose en lógica de programación, inteligencia artificial y optimización de software.",
+            "activar modo reclutador": "¡Modo Reclutador Activo! Luca está disponible para puestos en desarrollo de software o roles de atención al cliente y reposición. Podés contactarlo para agendar una entrevista."
         };
 
+        // Funciones del Modal de Chat
         function abrirPanel() {
-            chatPanel.classList.remove('pointer-events-none', 'opacity-0');
-            chatPanel.classList.add('opacity-100');
-            chatContent.classList.remove('translate-x-full');
-            chatContent.classList.add('translate-x-0');
-            chatInput.focus();
+            commandOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                commandPanel.classList.remove('opacity-0', 'scale-95');
+                commandPanel.classList.add('opacity-100', 'scale-100', 'animate-modal');
+                chatInput.focus();
+            }, 10);
         }
 
         function cerrarPanel() {
-            chatContent.classList.remove('translate-x-0');
-            chatContent.classList.add('translate-x-full');
-            chatPanel.classList.remove('opacity-100');
-            chatPanel.classList.add('opacity-0', 'pointer-events-none');
+            commandPanel.classList.remove('opacity-100', 'scale-100', 'animate-modal');
+            commandPanel.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                commandOverlay.classList.add('hidden');
+            }, 250);
         }
 
-        function scrollAlFinal() {
-            chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
-        }
+        btnCloseCommand.addEventListener('click', cerrarPanel);
+        commandOverlay.addEventListener('click', (e) => {
+            if (e.target === commandOverlay) cerrarPanel();
+        });
 
-        function manejarKeyPress(e) {
-            if (e.key === 'Enter') {
-                enviarMensajeInput();
+        window.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+                e.preventDefault();
+                commandOverlay.classList.contains('hidden') ? abrirPanel() : cerrarPanel();
             }
-        }
+            if (e.key === 'Escape' && !commandOverlay.classList.contains('hidden')) {
+                cerrarPanel();
+            }
+        });
 
-        function enviarMensajeInput() {
-            const texto = chatInput.value;
-            if (!texto.trim()) return;
-            chatInput.value = '';
-            procesarEnvio(texto);
-        }
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (escribiendoEfecto) return;
+            const mensaje = chatInput.value.trim();
+            if (mensaje) {
+                procesarEnvio(mensaje);
+                chatInput.value = '';
+            }
+        });
 
         function enviarSugerencia(texto) {
+            if (escribiendoEfecto) return;
             procesarEnvio(texto);
-        }
-
-        function agregarMensajeHTML(texto, remitente) {
-            const burbuja = document.createElement('div');
-            burbuja.className = `flex items-start space-x-2.5 ${remitente === 'usuario' ? 'justify-end' : ''}`;
-            
-            if (remitente === 'usuario') {
-                burbuja.innerHTML = `
-                    <div class="bg-crimson-600 text-white px-3.5 py-2 rounded-2xl rounded-tr-none text-[11px] tracking-wide max-w-[75%] font-light shadow-sm leading-relaxed">${texto}</div>
-                `;
-            } else {
-                burbuja.innerHTML = `
-                    <div class="w-7 h-7 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-xs">🤖</div>
-                    <div class="bg-neutral-900 border border-neutral-800 px-3.5 py-2 rounded-2xl rounded-tl-none text-[11px] text-neutral-200 tracking-wide max-w-[75%] font-light shadow-sm leading-relaxed">${texto}</div>
-                `;
-            }
-            dynamicMessages.appendChild(burbuja);
-        }
-
-        async function agregarMensajeEfectoMaquina(texto) {
-            const burbuja = document.createElement('div');
-            burbuja.className = "flex items-start space-x-2.5";
-            
-            const avatar = document.createElement('div');
-            avatar.className = "w-7 h-7 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-xs";
-            avatar.innerText = "🤖";
-            
-            const contenedorTexto = document.createElement('div');
-            contenedorTexto.className = "bg-neutral-900 border border-neutral-800 px-3.5 py-2 rounded-2xl rounded-tl-none text-[11px] text-neutral-200 tracking-wide max-w-[75%] font-light shadow-sm leading-relaxed";
-            
-            burbuja.appendChild(avatar);
-            burbuja.appendChild(contenedorTexto);
-            dynamicMessages.appendChild(burbuja);
-
-            let i = 0;
-            return new Promise((resolve) => {
-                function escribir() {
-                    if (i < texto.length) {
-                        contenedorTexto.innerHTML += texto.charAt(i);
-                        i++;
-                        scrollAlFinal();
-                        setTimeout(escribir, 12);
-                    } else {
-                        resolve();
-                    }
-                }
-                escribir();
-            });
         }
 
         async function procesarEnvio(texto) {
-            if (chatWelcome && !chatWelcome.classList.contains('hidden')) {
+            if (!chatWelcome.classList.contains('hidden')) {
                 chatWelcome.classList.add('hidden');
                 dynamicMessages.classList.remove('hidden');
             }
@@ -542,7 +663,6 @@
             const textoNormalizado = texto.toLowerCase().trim();
             let respuestaBot = null;
 
-            // Busca primero en tus RESPUESTAS_LOCALES
             for (const clave in RESPUESTAS_LOCALES) {
                 if (textoNormalizado.includes(clave)) {
                     respuestaBot = RESPUESTAS_LOCALES[clave];
@@ -550,26 +670,110 @@
                 }
             }
 
-            // Si no encuentra una palabra clave, tira una respuesta por defecto
-            if (!respuestaBot) {
-                respuestaBot = "¡Hola! Estoy procesando tu consulta sobre automatizaciones. ¿Te gustaría que agendemos un breve llamado para analizar un sistema a medida para tu negocio?";
+            try {
+                if (respuestaBot) {
+                    await new Promise(resolve => setTimeout(resolve, 400));
+                } else {
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ mensaje: texto })
+                    });
+                    const data = await response.json();
+                    respuestaBot = data.respuesta || "No pude procesar una respuesta en este momento.";
+                }
+                
+                loadingIndicator.classList.add('hidden');
+                await agregarMensajeEfectoMaquina(respuestaBot);
+
+            } catch (error) {
+                console.error(error);
+                loadingIndicator.classList.add('hidden');
+                agregarMensajeHTML("Hubo un error al conectar con el servidor.", 'asistente');
+            } finally {
+                scrollAlFinal();
             }
-            
-            // Simulamos una mini espera para mantener el efecto premium
-            await new Promise(resolve => setTimeout(resolve, 600));
-            
-            loadingIndicator.classList.add('hidden');
-            await agregarMensajeEfectoMaquina(respuestaBot);
+        }
+
+        function agregarMensajeHTML(texto, remitente) {
+            const wrapper = crearContenedorMensaje(remitente);
+            wrapper.querySelector('.bubble-text').textContent = texto;
+            dynamicMessages.appendChild(wrapper);
             scrollAlFinal();
         }
 
+        function crearContenedorMensaje(remitente) {
+            const wrapper = document.createElement('div');
+            wrapper.className = `flex flex-col ${remitente === 'usuario' ? 'items-end' : 'items-start'} space-y-1 w-full`;
+
+            const label = document.createElement('span');
+            label.className = `text-[10px] font-bold uppercase tracking-wider px-1 ${remitente === 'usuario' ? 'text-neutral-600' : 'text-crimson-400'}`;
+            label.textContent = remitente === 'usuario' ? 'Vos' : 'Asistente';
+            wrapper.appendChild(label);
+
+            const bubble = document.createElement('div');
+            bubble.className = `bubble-text max-w-[85%] p-3.5 rounded-2xl text-sm leading-relaxed ${
+                remitente === 'usuario' 
+                    ? 'bg-neutral-800 text-white font-medium' 
+                    : 'bg-neutral-900 border border-neutral-800 text-neutral-200 whitespace-pre-line'
+            }`;
+            
+            wrapper.appendChild(bubble);
+            return wrapper;
+        }
+
+        function agregarMensajeEfectoMaquina(texto) {
+            return new Promise((resolve) => {
+                escribiendoEfecto = true;
+                const wrapper = crearContenedorMensaje('asistente');
+                const bubble = wrapper.querySelector('.bubble-text');
+                dynamicMessages.appendChild(wrapper);
+
+                let i = 0;
+                function tipear() {
+                    if (i < texto.length) {
+                        bubble.textContent += texto.charAt(i);
+                        i++;
+                        scrollAlFinal();
+                        const pausa = texto.charAt(i-1) === '.' || texto.charAt(i-1) === ',' ? 150 : 12;
+                        setTimeout(tipear, pausa);
+                    } else {
+                        escribiendoEfecto = false;
+                        resolve();
+                    }
+                }
+                tipear();
+            });
+        }
+
+        btnResetChat.addEventListener('click', () => {
+            if (escribiendoEfecto) return;
+            dynamicMessages.innerHTML = '';
+            dynamicMessages.classList.add('hidden');
+            loadingIndicator.classList.add('hidden');
+            chatWelcome.classList.remove('hidden');
+            chatInput.value = '';
+            chatInput.focus();
+        });
+
+        function scrollAlFinal() {
+            chatMessagesArea.scrollTo({
+                top: chatMessagesArea.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+
+        // Funciones de Scroll y Animaciones Originales
         function scrollToTopAndReload() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            setTimeout(() => { window.location.reload(); }, 400);
+            const checkScroll = setInterval(() => {
+                if (window.scrollY === 0) {
+                    clearInterval(checkScroll);
+                    location.reload();
+                }
+            }, 50);
         }
-    </script>
 
-    <script>
         document.addEventListener('DOMContentLoaded', () => {
             const items = document.querySelectorAll('.timeline-item');
             const container = document.getElementById('timeline-section');
