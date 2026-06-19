@@ -661,41 +661,39 @@
             procesarEnvio(texto);
         }
 
-        async function procesarEnvio(texto) {
-            if (!chatWelcome.classList.contains('hidden')) {
-                chatWelcome.classList.add('hidden');
-                dynamicMessages.classList.remove('hidden');
-            }
+        async procesarEnvio(texto) {
+    if (!chatWelcome.classList.contains('hidden')) {
+        chatWelcome.classList.add('hidden');
+        dynamicMessages.classList.remove('hidden');
+    }
 
-            agregarMensajeHTML(texto, 'usuario');
-            loadingIndicator.classList.remove('hidden');
-            scrollAlFinal();
+    agregarMensajeHTML(texto, 'usuario');
+    loadingIndicator.classList.remove('hidden');
+    scrollAlFinal();
 
-            const textoNormalizado = texto.toLowerCase().trim();
-            let respuestaBot = null;
+    const textoNormalizado = texto.toLowerCase().trim();
+    let respuestaBot = null;
 
-            for (const clave in RESPUESTAS_LOCALES) {
-                if (textoNormalizado.includes(clave)) {
-                    respuestaBot = RESPUESTAS_LOCALES[clave];
-                    break; 
-                }
-            }
+    // Busca primero en tus RESPUESTAS_LOCALES
+    for (const clave in RESPUESTAS_LOCALES) {
+        if (textoNormalizado.includes(clave)) {
+            respuestaBot = RESPUESTES_LOCALES[clave];
+            break; 
+        }
+    }
 
-            try {
-                if (respuestaBot) {
-                    await new Promise(resolve => setTimeout(resolve, 400));
-                } else {
-                    const response = await fetch(API_URL, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ mensaje: texto })
-                    });
-                    const data = await response.json();
-                    respuestaBot = data.respuesta || "No pude procesar una respuesta en este momento.";
-                }
-                
-                loadingIndicator.classList.add('hidden');
-                await agregarMensajeEfectoMaquina(respuestaBot);
+    // Si no encuentra una palabra clave, tira una respuesta por defecto en vez de romperse
+    if (!respuestaBot) {
+        respuestaBot = "¡Hola! Estoy procesando tu consulta sobre automatizaciones. ¿Te gustaría que analicemos un sistema a medida para tu negocio?";
+    }
+    
+    // Simulamos una mini espera para mantener el efecto premium
+    await new Promise(resolve => setTimeout(resolve, 600));
+    
+    loadingIndicator.classList.add('hidden');
+    await agregarMensajeEfectoMaquina(respuestaBot);
+    scrollAlFinal();
+}
 
             } catch (error) {
                 console.error(error);
