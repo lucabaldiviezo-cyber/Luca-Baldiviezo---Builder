@@ -1,580 +1,136 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LucAI — Sistemas a Medida</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <!-- Lucide Icons para el Bot -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700&family=Syne:wght=700;800&family=Lora:ital,wght@0,400..750;1,400..750&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        title: ['Syne', 'sans-serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        serifElegant: ['Lora', 'serif'],
-                    },
-                    colors: {
-                        crimson: {
-                            50: '#fff1f1',
-                            500: '#991b1b',
-                            600: '#7f1d1d',
-                            950: '#0d0204',
-                        }
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <title>Portfolio - Luca Baldiviezo</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
-        [x-cloak] { display: none !important; }
-        
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        @keyframes floatAvatar {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-        }
-        .animate-float {
-            animation: floatAvatar 4s ease-in-out infinite;
-        }
-
-        @keyframes modalEntrance {
-            from { opacity: 0; transform: scale(0.96) translateY(10px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-        .animate-modal {
-            animation: modalEntrance 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
+        /* Paleta personalizada basada en componentes oscuros y crimson */
+        .bg-crimson-600 { background-color: #dc2626; }
+        .hover\:bg-crimson-700:hover { background-color: #b91c1c; }
+        .text-crimson-400 { color: #f87171; }
     </style>
 </head>
-<body class="bg-neutral-950 text-neutral-200 font-sans antialiased selection:bg-crimson-600 selection:text-white">
+<body class="bg-neutral-950 text-neutral-100 min-h-screen font-sans selection:bg-crimson-600 selection:text-white">
 
-    <nav class="flex justify-between items-center px-8 md:px-16 py-6 bg-neutral-950/70 backdrop-blur-md sticky top-0 z-50 border-b border-neutral-900">
-        <div class="flex items-center space-x-3 cursor-pointer group" onclick="scrollToTopAndReload()">
-            <div class="w-8 h-8 bg-crimson-500 rounded-lg flex items-center justify-center text-white text-sm font-black tracking-tighter group-hover:scale-105 transition-transform duration-300">L</div>
-            <span class="text-lg font-bold tracking-tight text-white font-title">LucAI</span>
-        </div>
-        <div class="hidden md:flex space-x-8 text-xs font-semibold tracking-widest uppercase text-neutral-400">
-            <a href="#clientes" class="hover:text-crimson-500 transition-colors duration-300">Clientes</a>
-            <a href="#proyectos" class="hover:text-crimson-500 transition-colors duration-300">Proyectos</a>
-            <a href="#reseñas" class="hover:text-crimson-500 transition-colors duration-300">Reseñas</a>
-        </div>
-        <a href="#contacto" class="bg-crimson-500 text-white px-6 py-2.5 text-xs font-bold tracking-widest uppercase hover:bg-crimson-600 transition-all duration-300 rounded-md shadow-lg shadow-crimson-500/20">
-            Contacto
-        </a>
-    </nav>
+    <!-- CONTENEDOR PRINCIPAL / CONTENIDO DEL PORTFOLIO -->
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        <!-- Encabezado Principal -->
+        <header class="mb-16 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6 border-b border-neutral-900 pb-10">
+            <div>
+                <h1 class="text-4xl font-bold tracking-tight bg-gradient-to-r from-white to-neutral-500 bg-clip-text text-transparent">Luca Baldiviezo</h1>
+                <p class="text-neutral-400 mt-2 text-sm font-light tracking-wide">Desarrollador Full Stack & Estudiante de Ingeniería de Software</p>
+                <div class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
+                    <span class="px-2.5 py-1 text-[10px] bg-neutral-900 border border-neutral-800 rounded text-neutral-400 tracking-wider uppercase font-semibold">Python / IA</span>
+                    <span class="px-2.5 py-1 text-[10px] bg-neutral-900 border border-neutral-800 rounded text-neutral-400 tracking-wider uppercase font-semibold">JavaScript</span>
+                    <span class="px-2.5 py-1 text-[10px] bg-neutral-900 border border-neutral-800 rounded text-neutral-400 tracking-wider uppercase font-semibold">Tailwind CSS</span>
+                </div>
+            </div>
+            
+            <!-- Botón Disparador del Chatbot -->
+            <button onclick="abrirPanel()" class="flex items-center space-x-2 bg-neutral-900 border border-neutral-800 hover:border-neutral-700 text-neutral-200 px-5 py-2.5 rounded-xl text-xs font-medium tracking-wide transition-all shadow-sm cursor-pointer group">
+                <span>Preguntarle a LucAI</span>
+                <span class="text-crimson-400 group-hover:translate-x-1 transition-transform">→</span>
+            </button>
+        </header>
 
-    <header class="max-w-7xl mx-auto px-6 md:px-16 py-12 md:py-24 grid grid-cols-1 xl:grid-cols-12 gap-16 items-center animate-fade-in-up">
-        <div class="xl:col-span-5 space-y-6 w-full max-w-xl mx-auto xl:mx-0">
-            <div class="inline-flex items-center space-x-2 border border-crimson-500/30 bg-crimson-950/40 px-4 py-1.5 rounded-full">
-                <span class="w-2 h-2 bg-crimson-500 rounded-full animate-pulse"></span>
-                <span class="text-[10px] font-bold text-crimson-100 uppercase tracking-widest">Panel de Control Activo</span>
+        <!-- Sección de Proyectos Simulada en la Web -->
+        <section class="mb-12">
+            <h2 class="text-lg font-semibold tracking-wide mb-6 text-neutral-200">Proyectos Destacados</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-neutral-900/40 border border-neutral-900 p-5 rounded-2xl">
+                    <h3 class="text-sm font-medium text-neutral-200">LucAI — Asistente de IA Integrado</h3>
+                    <p class="text-neutral-400 text-xs font-light mt-2 leading-relaxed">Agente conversacional inteligente autónomo integrado en el portfolio para responder consultas sobre stack, experiencia y lógica local.</p>
+                </div>
+                <div class="bg-neutral-900/40 border border-neutral-900 p-5 rounded-2xl">
+                    <h3 class="text-sm font-medium text-neutral-200">Herramientas de Automatización</h3>
+                    <p class="text-neutral-400 text-xs font-light mt-2 leading-relaxed">Scripts funcionales en Python diseñados para optimización de procesos domésticos, cálculos precisos y procesamiento inteligente de datos.</p>
+                </div>
             </div>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white font-title leading-[1.1]">
-                Tu negocio, <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-crimson-500 to-red-400">automatizado.</span>
-            </h1>
-            <p class="text-neutral-400 text-sm md:text-base font-light leading-relaxed">
-                Explorá las pestañas del sistema real para ver cómo organizamos flujos, ventas, conversaciones con IA y stock.
-            </p>
-            <div class="pt-2 flex flex-wrap gap-4">
-                <a href="#contacto" class="bg-white text-neutral-950 px-6 py-3.5 text-xs font-bold tracking-widest uppercase hover:bg-crimson-500 hover:text-white transition-all duration-300 rounded-md inline-block">
-                    Empezar ahora →
-                </a>
-                <a href="#timeline-section" class="border border-neutral-800 bg-neutral-900/20 text-neutral-300 px-6 py-3.5 text-xs font-bold tracking-widest uppercase hover:border-crimson-500/50 hover:text-white transition-all duration-300 rounded-md inline-block">
-                    Ver cómo funciona
-                </a>
-            </div>
-        </div>
+        </section>
+    </main>
+
+    <!-- COMPONENTE: PANEL FLOTANTE DEL CHATBOT (LucAI) -->
+    <div id="chatPanel" class="fixed inset-0 bg-black/60 backdrop-blur-xs opacity-0 pointer-events-none transition-opacity duration-300 z-50 flex justify-end">
         
-        <div class="xl:col-span-7 bg-neutral-900/40 border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl grid grid-cols-12 backdrop-blur-sm w-full" 
-             x-data="{ currentTab: 'analytics' }">
+        <!-- Contenedor del Panel -->
+        <div id="chatContent" class="w-full max-w-md bg-neutral-950 border-l border-neutral-900 h-full flex flex-col justify-between translate-x-full transition-transform duration-300 ease-out shadow-2xl">
             
-            <div class="col-span-4 sm:col-span-3 bg-neutral-950/60 p-4 border-r border-neutral-800/80 space-y-6">
-                <div class="flex items-center space-x-2 px-1 pb-4 border-b border-neutral-900">
-                    <div class="w-5 h-5 bg-crimson-500/20 text-crimson-400 rounded flex items-center justify-center text-[10px] font-bold">💼</div>
-                    <span class="text-[11px] font-bold text-white tracking-wide">Mi Negocio</span>
-                </div>
-                <div class="space-y-1">
-                    <button @click="currentTab = 'analytics'" :class="currentTab === 'analytics' ? 'bg-crimson-950/40 text-crimson-400 border-crimson-500/30' : 'text-neutral-400 border-transparent hover:bg-neutral-900/50'" class="w-full text-left flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-medium border transition-all">
-                        <i class="fa-solid fa-chart-pie text-[11px]"></i>
-                        <span class="hidden sm:inline">Analytics</span>
-                    </button>
-                    <button @click="currentTab = 'chatbot'" :class="currentTab === 'chatbot' ? 'bg-crimson-950/40 text-crimson-400 border-crimson-500/30' : 'text-neutral-400 border-transparent hover:bg-neutral-900/50'" class="w-full text-left flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-medium border transition-all">
-                        <i class="fa-regular fa-comment-dots text-[11px]"></i>
-                        <span class="hidden sm:inline">Chatbot</span>
-                    </button>
-                    <button @click="currentTab = 'pipeline'" :class="currentTab === 'pipeline' ? 'bg-crimson-950/40 text-crimson-400 border-crimson-500/30' : 'text-neutral-400 border-transparent hover:bg-neutral-900/50'" class="w-full text-left flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-medium border transition-all">
-                        <i class="fa-solid fa-route text-[11px]"></i>
-                        <span class="hidden sm:inline">Pipeline</span>
-                    </button>
-                    <button @click="currentTab = 'clientes_tab'" :class="currentTab === 'clientes_tab' ? 'bg-crimson-950/40 text-crimson-400 border-crimson-500/30' : 'text-neutral-400 border-transparent hover:bg-neutral-900/50'" class="w-full text-left flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-medium border transition-all">
-                        <i class="fa-solid fa-users text-[11px]"></i>
-                        <span class="hidden sm:inline">Clientes</span>
-                    </button>
-                    <button @click="currentTab = 'stock'" :class="currentTab === 'stock' ? 'bg-crimson-950/40 text-crimson-400 border-crimson-500/30' : 'text-neutral-400 border-transparent hover:bg-neutral-900/50'" class="w-full text-left flex items-center space-x-3 px-3 py-2.5 rounded-xl text-xs font-medium border transition-all">
-                        <i class="fa-solid fa-boxes-stacked text-[11px]"></i>
-                        <span class="hidden sm:inline">Stock</span>
-                    </button>
-                </div>
-                <div class="pt-12 hidden sm:block">
-                    <div class="bg-neutral-900/80 border border-neutral-800 p-2.5 rounded-xl flex items-center space-x-2.5 shadow-md">
-                        <i class="fa-solid fa-circle-check text-emerald-500 text-xs"></i>
-                        <div class="text-[9px]">
-                            <p class="text-white font-medium">Reporte enviado</p>
-                            <p class="text-neutral-500 font-mono">Hoy, 8:00 am</p>
-                        </div>
+            <!-- Encabezado del Chat -->
+            <div class="p-4 border-b border-neutral-900 flex items-center justify-between bg-neutral-950">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-full bg-crimson-600/10 border border-crimson-600/20 flex items-center justify-center text-sm">🤖</div>
+                    <div>
+                        <h3 class="text-xs font-medium text-neutral-200 tracking-wide">LucAI</h3>
+                        <p class="text-[10px] text-emerald-400 font-light flex items-center gap-1">
+                            <span class="w-1 h-1 rounded-full bg-emerald-400 inline-block animate-pulse"></span> Activo de forma local
+                        </p>
                     </div>
                 </div>
+                <button onclick="cerrarPanel()" class="text-neutral-400 hover:text-white text-sm p-1 cursor-pointer transition-colors">✕</button>
             </div>
 
-            <div class="col-span-8 sm:col-span-9 p-6 h-[280px] overflow-y-auto relative">
+            <!-- Cuerpo del Chat / Mensajes -->
+            <div id="chatBody" class="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin">
                 
-                <div x-show="currentTab === 'analytics'" class="space-y-4" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-semibold text-white tracking-wide font-title">Dashboard analítico</span>
-                        <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/40 border border-emerald-500/20 px-2 py-0.5 rounded-full font-bold">+12% ▲</span>
+                <!-- Pantalla de Bienvenida con Sugerencias -->
+                <div id="chatWelcome" class="space-y-6 py-4">
+                    <div class="text-center space-y-2">
+                        <p class="text-neutral-300 text-xs font-light px-4 leading-relaxed">¡Hola! Soy LucAI, el asistente automatizado del portfolio de Luca. ¿Qué te gustaría saber sobre él?</p>
                     </div>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                        <div class="bg-neutral-950/40 border border-neutral-800/80 p-2.5 rounded-xl">
-                            <span class="text-[9px] text-neutral-500 block mb-0.5">Ingresos</span>
-                            <span class="text-xs font-bold text-white font-mono">$128K</span>
-                        </div>
-                        <div class="bg-neutral-950/40 border border-neutral-800/80 p-2.5 rounded-xl">
-                            <span class="text-[9px] text-neutral-500 block mb-0.5">Clientes</span>
-                            <span class="text-xs font-bold text-white font-mono">47</span>
-                        </div>
-                        <div class="bg-neutral-950/40 border border-neutral-800/80 p-2.5 rounded-xl">
-                            <span class="text-[9px] text-neutral-500 block mb-0.5">Pedidos</span>
-                            <span class="text-xs font-bold text-white font-mono">23</span>
-                        </div>
-                        <div class="bg-neutral-950/40 border border-neutral-800/80 p-2.5 rounded-xl">
-                            <span class="text-[9px] text-neutral-500 block mb-0.5">Conv.</span>
-                            <span class="text-xs font-bold text-white font-mono">68%</span>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-12 gap-3">
-                        <div class="col-span-12 sm:col-span-7 bg-neutral-950/40 border border-neutral-800/80 p-3 rounded-xl flex flex-col justify-between h-28">
-                            <div class="flex justify-between text-[9px] text-neutral-500">
-                                <span>Ingresos anuales</span>
-                                <span class="font-mono text-neutral-400">2026</span>
-                            </div>
-                            <div class="h-14 w-full">
-                                <svg class="w-full h-full stroke-crimson-500 fill-none" viewBox="0 0 100 30">
-                                    <path d="M0,25 Q15,18 30,22 T60,10 T90,5 T100,2" stroke-width="2" stroke-linecap="round"/>
-                                    <path d="M0,25 Q15,18 30,22 T60,10 T90,5 T100,2 L100,30 L0,30 Z" fill="url(#grad)" opacity="0.05"/>
-                                    <defs>
-                                        <linearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                            <stop offset="0%" stop-color="#991b1b" />
-                                            <stop offset="100%" stop-color="transparent" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="col-span-12 sm:col-span-5 bg-neutral-950/40 border border-neutral-800/80 p-3 rounded-xl flex flex-col justify-between h-28">
-                            <span class="text-[9px] text-neutral-500">Origen ventas</span>
-                            <div class="space-y-1 text-[10px]">
-                                <div class="flex justify-between"><span class="text-neutral-400">● Directo</span><span class="text-white font-mono font-bold">42%</span></div>
-                                <div class="w-full bg-neutral-900 h-1 rounded-full"><div class="bg-crimson-500 h-full w-[42%]"></div></div>
-                                <div class="flex justify-between"><span class="text-neutral-400">● Orgánico</span><span class="text-white font-mono font-bold">28%</span></div>
-                                <div class="w-full bg-neutral-900 h-1 rounded-full"><div class="bg-red-400 h-full w-[28%]"></div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Modificado: Pestaña Chatbot ahora invita a abrir tu bot real -->
-                <div x-show="currentTab === 'chatbot'" class="space-y-3 h-full flex flex-col justify-center items-center text-center" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100">
-                    <span class="text-xs font-semibold text-white tracking-wide font-title block mb-1">Módulo Asistente Virtual</span>
-                    <p class="text-neutral-400 text-[11px] max-w-xs mb-3">Probá el funcionamiento interactivo de la IA configurada a medida para este sistema.</p>
-                    <button onclick="abrirPanel()" class="px-4 py-2 bg-crimson-500/20 hover:bg-crimson-500 border border-crimson-500/40 hover:border-crimson-500 text-crimson-300 hover:text-white rounded-xl text-xs font-medium transition-all duration-200 flex items-center gap-2 cursor-pointer shadow-md">
-                        <i class="fa-regular fa-comment-dots"></i>
-                        <span>Abrir Chat En Vivo</span>
-                    </button>
-                </div>
-
-                <div x-show="currentTab === 'pipeline'" class="space-y-3" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100">
-                    <span class="text-xs font-semibold text-white tracking-wide font-title block">Pipeline de ventas</span>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-[11px]">
-                        <div class="bg-neutral-950/50 border border-neutral-800 p-2 rounded-xl space-y-1.5">
-                            <div class="text-neutral-400 font-bold border-b border-neutral-900 pb-1 flex justify-between"><span>Prospectos</span><span class="text-crimson-400">2</span></div>
-                            <div class="bg-neutral-900/60 p-1.5 border border-neutral-800 rounded-lg"><p class="text-white font-medium">Karla Méndez</p><p class="text-neutral-500 font-mono mt-0.5">$8.400</p></div>
-                        </div>
-                        <div class="bg-neutral-950/50 border border-neutral-800 p-2 rounded-xl space-y-1.5">
-                            <div class="text-neutral-400 font-bold border-b border-neutral-900 pb-1 flex justify-between"><span>Propuesta</span><span class="text-amber-400">1</span></div>
-                            <div class="bg-neutral-900/60 p-1.5 border border-neutral-800 rounded-lg"><p class="text-white font-medium">Kevin Torres</p><p class="text-neutral-500 font-mono mt-0.5">$12.000</p></div>
-                        </div>
-                        <div class="bg-neutral-950/50 border border-neutral-800 p-2 rounded-xl space-y-1.5">
-                            <div class="text-neutral-400 font-bold border-b border-neutral-900 pb-1 flex justify-between"><span>Ganados</span><span class="text-emerald-400">✓</span></div>
-                            <div class="bg-crimson-950/20 border border-crimson-500/20 p-1.5 rounded-lg"><p class="text-white font-medium">Karen Solís</p><p class="text-neutral-400 font-mono mt-0.5">$9.100</p></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div x-show="currentTab === 'clientes_tab'" class="space-y-3" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100">
-                    <span class="text-xs font-semibold text-white tracking-wide font-title block">CRM Clientes</span>
-                    <div class="bg-neutral-950/40 border border-neutral-800/80 rounded-xl overflow-hidden text-[11px]">
-                        <table class="w-full text-left">
-                            <thead class="bg-neutral-950 border-b border-neutral-900 text-neutral-400 font-mono uppercase tracking-wider text-[9px]">
-                                <tr>
-                                    <th class="p-2.5">Nombre</th>
-                                    <th class="p-2.5">Canal</th>
-                                    <th class="p-2.5">Estado</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-neutral-900 text-neutral-300">
-                                <tr><td class="p-2.5 font-medium text-white">Martín Rodríguez</td><td class="p-2.5 text-emerald-400"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp</td><td class="p-2.5"><span class="bg-emerald-950/40 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-full font-bold text-[9px]">Activo</span></td></tr>
-                                <tr><td class="p-2.5 font-medium text-white">Laura Sánchez</td><td class="p-2.5 text-blue-400"><i class="fa-solid fa-globe mr-1"></i> Web</td><td class="p-2.5"><span class="bg-emerald-950/40 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-full font-bold text-[9px]">Activo</span></td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div x-show="currentTab === 'stock'" class="space-y-4" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100">
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs font-semibold text-white tracking-wide font-title">Gestión de Stock</span>
-                        <span class="text-[10px] font-mono text-neutral-400">Total: $265k</span>
-                    </div>
-                    <div class="space-y-3 text-[11px]">
-                        <div>
-                            <div class="flex justify-between text-neutral-400 mb-1"><span>Pack Inicial</span><span class="text-white font-bold">78%</span></div>
-                            <div class="w-full bg-neutral-950 border border-neutral-900 h-2 rounded-full overflow-hidden"><div class="bg-crimson-500 h-full w-[78%]"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-neutral-400 mb-1"><span>Plan Pro</span><span class="text-white font-bold">41%</span></div>
-                            <div class="w-full bg-neutral-950 border border-neutral-900 h-2 rounded-full overflow-hidden"><div class="bg-crimson-600 h-full w-[41%]"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </header>
-
-    <section id="clientes" class="bg-neutral-900/20 py-16 border-y border-neutral-900 reveal">
-        <div class="max-w-7xl mx-auto px-8 text-center">
-            <p class="text-[10px] font-bold text-neutral-500 uppercase tracking-widest mb-10">Negocios que ya recuperaron su tiempo con nosotros</p>
-            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-30 hover:opacity-70 transition-opacity duration-500 text-white">
-                <span class="font-bold text-sm tracking-widest font-title">MUNAFÓ</span>
-                <span class="font-mono text-lg font-black tracking-tighter">OMP</span>
-                <span class="italic text-base font-serif">HUMO ROJO</span>
-                <span class="font-light text-sm tracking-wider">CHIRO</span>
-                <span class="font-bold text-sm tracking-widest font-title">PALLADINO</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="max-w-5xl mx-auto px-8 py-24 reveal" x-data="{ activeStep: 1 }" id="timeline-section">
-        <div class="text-center mb-20">
-            <span class="text-[10px] font-bold text-crimson-500 uppercase tracking-widest">Un día en tu negocio</span>
-            <h2 class="text-3xl font-extrabold tracking-tight text-white font-title mt-2">Así se siente tenerlo todo resuelto.</h2>
-            <p class="text-neutral-500 text-xs mt-1 font-light">No mostramos al sistema funcionando. ¡Mostramos tu día mientras el sistema trabaja por detrás!</p>
-        </div>
-        
-        <div class="grid md:grid-cols-12 gap-12 items-start relative">
-            <div class="md:col-span-7 relative border-l border-neutral-800 space-y-24 ml-4 py-12">
-                
-                <div class="relative pl-8 timeline-item" data-step="1" :class="activeStep === 1 ? 'scale-[1.01] opacity-100' : 'opacity-30 scale-95 transition-all duration-300'">
-                    <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full transition-all duration-300 bg-neutral-950 border" :class="activeStep === 1 ? 'border-crimson-500 bg-crimson-500 ring-4 ring-crimson-950/80' : 'border-neutral-700'"></div>
-                    <span class="text-[10px] font-mono tracking-wider text-neutral-500 block mb-1">08:30 AM</span>
-                    <h3 class="text-base font-bold font-title text-white flex items-center gap-2">Tomás el primer café.</h3>
-                    <p class="text-xs text-neutral-400 mt-2 font-light leading-relaxed">Mientras arrancás tu mañana, la IA ya está respondiendo de manera autónoma las consultas que entraron a tu WhatsApp.</p>
-                </div>
-                
-                <div class="relative pl-8 timeline-item" data-step="2" :class="activeStep === 2 ? 'scale-[1.01] opacity-100' : 'opacity-30 scale-95 transition-all duration-300'">
-                    <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full transition-all duration-300 bg-neutral-950 border" :class="activeStep === 2 ? 'border-crimson-500 bg-crimson-500 ring-4 ring-crimson-950/80' : 'border-neutral-700'"></div>
-                    <span class="text-[10px] font-mono tracking-wider text-neutral-500 block mb-1">11:00 AM</span>
-                    <h3 class="text-base font-bold font-title text-white flex items-center gap-2">Estás con un cliente en el salón.</h3>
-                    <p class="text-xs text-neutral-400 mt-2 font-light leading-relaxed">Te concentrás en la atención física. El reporte consolidado del día anterior ya fue procesado y subido al sistema sin que muevas un dedo.</p>
-                </div>
-                
-                <div class="relative pl-8 timeline-item" data-step="3" :class="activeStep === 3 ? 'scale-[1.01] opacity-100' : 'opacity-30 scale-95 transition-all duration-300'">
-                    <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full transition-all duration-300 bg-neutral-950 border" :class="activeStep === 3 ? 'border-crimson-500 bg-crimson-500 ring-4 ring-crimson-950/80' : 'border-neutral-700'"></div>
-                    <span class="text-[10px] font-mono tracking-wider text-neutral-500 block mb-1">14:00 PM</span>
-                    <h3 class="text-base font-bold font-title text-white flex items-center gap-2">Almorzás tranquilo.</h3>
-                    <p class="text-xs text-neutral-400 mt-2 font-light leading-relaxed">Disfrutás tu almuerzo sabiendo que los niveles de stock e inventario se actualizan automáticamente con cada orden confirmada.</p>
-                </div>
-
-                <div class="relative pl-8 timeline-item" data-step="4" :class="activeStep === 4 ? 'scale-[1.01] opacity-100' : 'opacity-30 scale-95 transition-all duration-300'">
-                    <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full transition-all duration-300 bg-neutral-950 border" :class="activeStep === 4 ? 'border-crimson-500 bg-crimson-500 ring-4 ring-crimson-950/80' : 'border-neutral-700'"></div>
-                    <span class="text-[10px] font-mono tracking-wider text-neutral-500 block mb-1">19:00 PM</span>
-                    <h3 class="text-base font-bold font-title text-white flex items-center gap-2">Cerrás el local.</h3>
-                    <p class="text-xs text-neutral-400 mt-2 font-light leading-relaxed">No hay planillas que rellenar a última hora. Las facturas y cierres de caja del día ya se emitieron y guardaron de forma digital.</p>
-                </div>
-
-                <div class="relative pl-8 timeline-item" data-step="5" :class="activeStep === 5 ? 'scale-[1.01] opacity-100' : 'opacity-30 scale-95 transition-all duration-300'">
-                    <div class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full transition-all duration-300 bg-neutral-950 border" :class="activeStep === 5 ? 'border-crimson-500 bg-crimson-500 ring-4 ring-crimson-950/80' : 'border-neutral-700'"></div>
-                    <span class="text-[10px] font-mono tracking-wider text-neutral-500 block mb-1">22:00 PM</span>
-                    <h3 class="text-base font-bold font-title text-white flex items-center gap-2">Cenas con tu familia.</h3>
-                    <p class="text-xs text-neutral-400 mt-2 font-light leading-relaxed">Tu negocio funciona de manera impecable y en piloto automático. Es hora de desconectar por completo y descansar.</p>
-                </div>
-            </div>
-
-            <div class="md:col-span-5 md:sticky md:top-32 bg-neutral-900/40 border border-neutral-800 p-8 rounded-2xl h-64 flex flex-col justify-center overflow-hidden backdrop-blur-sm mt-8 md:mt-0">
-                <div class="absolute -right-12 -bottom-12 w-32 h-32 bg-crimson-500/10 rounded-full blur-2xl"></div>
-                
-                <div x-show="activeStep === 1" x-transition:enter="transition duration-200" class="space-y-2">
-                    <div class="text-crimson-400 text-[10px] font-mono uppercase font-bold tracking-wide"><i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp Activo</div>
-                    <h4 class="text-lg font-bold font-title text-white">La IA contesta consultas</h4>
-                    <p class="text-xs text-neutral-400 font-light leading-relaxed">Asignación automática de tags, filtrado de prospectos y respuestas instantáneas configuradas a medida.</p>
-                </div>
-                
-                <div x-show="activeStep === 2" x-transition:enter="transition duration-200" class="space-y-2" x-cloak>
-                    <div class="text-crimson-400 text-[10px] font-mono uppercase font-bold tracking-wide"><i class="fa-solid fa-circle-check mr-1"></i> Reportes Al Día</div>
-                    <h4 class="text-lg font-bold font-title text-white">El reporte de ayer ya está listo</h4>
-                    <p class="text-xs text-neutral-400 font-light leading-relaxed">Toda la información operativa estructurada, unificada y lista para analizar en tu dashboard centralizado.</p>
-                </div>
-                
-                <div x-show="activeStep === 3" x-transition:enter="transition duration-200" class="space-y-2" x-cloak>
-                    <div class="text-crimson-400 text-[10px] font-mono uppercase font-bold tracking-wide"><i class="fa-solid fa-boxes-stacked mr-1"></i> Inventario Completo</div>
-                    <h4 class="text-lg font-bold font-title text-white">El stock se actualiza solo</h4>
-                    <p class="text-xs text-neutral-400 font-light leading-relaxed">Sincronización en tiempo real con pasarelas de pago y canales de venta físicos/digitales para evitar quiebres.</p>
-                </div>
-
-                <div x-show="activeStep === 4" x-transition:enter="transition duration-200" class="space-y-2" x-cloak>
-                    <div class="text-crimson-400 text-[10px] font-mono uppercase font-bold tracking-wide"><i class="fa-solid fa-receipt mr-1"></i> Automatización Fiscal</div>
-                    <h4 class="text-lg font-bold font-title text-white">Las facturas del día ya se emitieron</h4>
-                    <p class="text-xs text-neutral-400 font-light leading-relaxed">Procesamiento automático de facturación e ingresos directo al módulo contable al cierre de jornada.</p>
-                </div>
-
-                <div x-show="activeStep === 5" x-transition:enter="transition duration-200" class="space-y-2" x-cloak>
-                    <div class="text-crimson-400 text-[10px] font-mono uppercase font-bold tracking-wide"><i class="fa-solid fa-moon mr-1"></i> Modo Descanso</div>
-                    <h4 class="text-lg font-bold font-title text-white">Tu negocio funciona sin vos</h4>
-                    <p class="text-xs text-neutral-400 font-light leading-relaxed">El sistema mantiene las luces encendidas y las operaciones seguras mientras disfrutás de lo que realmente importa.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="proyectos" class="bg-neutral-900/40 border-t border-neutral-900 py-24 reveal">
-        <div class="max-w-7xl mx-auto px-8 md:px-16">
-            <div class="mb-16">
-                <span class="text-[10px] font-bold text-crimson-500 uppercase tracking-widest">Proyectos</span>
-                <h2 class="text-3xl font-extrabold text-white font-title mt-2">Trabajos Realizados</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="group bg-neutral-950 border border-neutral-800/80 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1.5 hover:border-crimson-500/40">
-                    <div class="w-11 h-11 bg-crimson-950/60 border border-crimson-500/20 rounded-xl flex items-center justify-center text-crimson-400 mb-6 group-hover:bg-crimson-500 group-hover:text-white transition-all">
-                        <i class="fa-solid fa-car text-base"></i>
-                    </div>
-                    <h3 class="text-lg font-bold font-title text-white mb-2">Munafó Automóviles</h3>
-                    <p class="text-xs text-neutral-400 font-light leading-relaxed">CRM, Gestión de stock y automatización de embudos vinculados directamente a tu app.</p>
-                </div>
-                <div class="group bg-neutral-950 border border-neutral-800/80 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1.5 hover:border-crimson-500/40">
-                    <div class="w-11 h-11 bg-crimson-950/60 border border-crimson-500/20 rounded-xl flex items-center justify-center text-crimson-400 mb-6 group-hover:bg-crimson-500 group-hover:text-white transition-all">
-                        <i class="fa-solid fa-file-excel text-base"></i>
-                    </div>
-                    <h3 class="text-lg font-bold font-title text-white mb-2">Industrias Paladino</h3>
-                    <p class="text-xs text-neutral-400 font-light leading-relaxed">Conversión automática de planillas Excel masivas a módulos dinámicos limpios.</p>
-                </div>
-                <div class="group bg-neutral-950 border border-neutral-800/80 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1.5 hover:border-crimson-500/40">
-                    <div class="w-11 h-11 bg-crimson-950/60 border border-crimson-500/20 rounded-xl flex items-center justify-center text-crimson-400 mb-6 group-hover:bg-crimson-500 group-hover:text-white transition-all">
-                        <i class="fa-solid fa-layer-group text-base"></i>
-                    </div>
-                    <h3 class="text-lg font-bold font-title text-white mb-2">OMP</h3>
-                    <p class="text-xs text-neutral-400 font-light leading-relaxed">Consolidación integral de sistemas, cuentas corrientes y facturación instantánea.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="reseñas" class="max-w-7xl mx-auto px-8 md:px-16 py-24 reveal">
-        <h2 class="text-3xl font-extrabold text-white font-title mb-16 text-center md:text-left">Que Opinan Nuestros Clientes</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-neutral-900/20 p-8 rounded-2xl border border-neutral-900 space-y-6">
-                <p class="text-neutral-400 font-light text-xs leading-relaxed">"Trabajar juntos fue una experiencia muy clara y ordenada. Siempre tuve respuestas rápidas y un acompañamiento cercano."</p>
-                <div>
-                    <div class="font-bold text-xs text-white font-title">Matías Munafó</div>
-                    <div class="text-[10px] text-crimson-400 font-mono mt-0.5">Munafó Automóviles</div>
-                </div>
-            </div>
-            <div class="bg-neutral-900/20 p-8 rounded-2xl border border-neutral-900 space-y-6">
-                <p class="text-neutral-400 font-light text-xs leading-relaxed">"Destaco la rapidez y la paciencia con la que me guiaron. Gracias a su visión pude tomar decisiones clave sobre el rumbo de mi proyecto."</p>
-                <div>
-                    <div class="font-bold text-xs text-white font-title">Lucas Abriata</div>
-                    <div class="text-[10px] text-crimson-400 font-mono mt-0.5">Socio Fundador</div>
-                </div>
-            </div>
-            <div class="bg-neutral-900/20 p-8 rounded-2xl border border-neutral-900 space-y-6">
-                <p class="text-neutral-400 font-light text-xs leading-relaxed">"Lo que más valoro es que logramos superar barreras que parecían imposibles. La dedicación técnica marcó toda la diferencia."</p>
-                <div>
-                    <div class="font-bold text-xs text-white font-title">Erick Herrera</div>
-                    <div class="text-[10px] text-crimson-400 font-mono mt-0.5">Blue Rent a Car</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de Contacto adaptada para abrir tu bot personalizado -->
-    <section id="contacto" class="bg-neutral-950 py-28 border-t border-neutral-900 text-center relative overflow-hidden reveal">
-        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-crimson-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="max-w-3xl mx-auto px-8 space-y-8 relative z-10">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-white font-title tracking-tight">Nosotros no usamos un formulario aburrido.</h2>
-            <p class="text-neutral-400 text-xs md:text-sm font-light max-w-xl mx-auto leading-relaxed">
-                Hablá directamente con nuestro chat inteligente. Nuestra IA se va a encargar de hacerte las preguntas necesarias, ofrecerte opciones y conectarte con nosotros.
-            </p>
-            <div class="pt-4">
-                <button onclick="abrirPanel()" class="bg-crimson-500 text-white font-bold text-xs tracking-widest uppercase px-8 py-4 rounded-md hover:bg-crimson-600 transition-all duration-300 shadow-xl shadow-crimson-500/20 flex items-center space-x-3 mx-auto group cursor-pointer">
-                    <i class="fa-solid fa-wave-square animate-pulse"></i>
-                    <span>Hablar con la IA</span>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 text-center text-[9px] tracking-widest text-neutral-600 font-mono border-t border-neutral-900 uppercase">
-        &copy; LucAI — Desarrolado por Luca Baldiviezo.
-    </footer>
-
-
-    <!-- MODAL PREMIUM DEL ASISTENTE VIRTUAL INTEGRADO -->
-    <div id="command-overlay" class="hidden fixed inset-0 bg-black/70 backdrop-blur-xl z-50 flex items-center justify-center p-4">
-        <div id="command-panel" class="bg-[#121214] w-full max-w-xl h-[560px] rounded-[28px] shadow-[0_30px_80px_rgba(0,0,0,0.9)] border border-neutral-800 flex flex-col overflow-hidden opacity-0 scale-95 transition-all duration-300">
-            
-            <!-- Encabezado superior -->
-            <div class="p-4 px-5 flex justify-between items-center bg-transparent border-b border-neutral-900">
-                <div class="flex items-center gap-1.5 opacity-80">
-                    <div class="w-2 h-2 bg-crimson-500 rounded-full animate-pulse"></div>
-                    <span class="text-[10px] font-mono tracking-wider uppercase text-neutral-400">LucAI — Asistente</span>
-                </div>
-                <div class="flex items-center gap-1 text-neutral-500">
-                    <button id="btn-reset-chat" title="Reiniciar chat" class="hover:text-neutral-300 p-1.5 rounded-lg hover:bg-neutral-900 transition cursor-pointer">
-                        <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
-                    </button>
-                    <button id="btn-close-command" title="Cerrar (Esc)" class="hover:text-neutral-300 p-1.5 rounded-lg hover:bg-neutral-900 transition cursor-pointer">
-                        <i data-lucide="x" class="w-4 h-4"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Área de Mensajes -->
-            <div id="chat-messages" class="flex-1 overflow-y-auto px-6 pb-4 no-scrollbar flex flex-col justify-between">
-                
-                <!-- Vista de Bienvenida Inicial -->
-                <div id="chat-welcome" class="flex-1 flex flex-col items-center justify-center text-center my-auto transition-all duration-300">
-                    <div class="mb-4 animate-float relative flex items-center justify-center w-14 h-14 bg-neutral-900 border border-neutral-800 rounded-2xl shadow-inner">
-                        <i data-lucide="bot" class="w-7 h-7 text-crimson-500"></i>
-                    </div>
-
-                    <h2 class="text-3xl font-serifElegant font-medium text-white mb-1.5 tracking-wide">¡Hola!, ¿Cómo estás?</h2>
-                    <p class="text-neutral-400 text-xs font-medium mb-6">Preguntame lo que quieras sobre nuestro sistema y automatizaciones</p>
                     
-                    <!-- Sugerencias rápidas -->
-                    <div class="w-full max-w-md space-y-2">
-                        <div class="grid grid-cols-2 gap-2">
-                            <button onclick="enviarSugerencia('¿Quién es Luca?')" class="py-2.5 px-3 bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 rounded-xl text-xs text-neutral-300 font-medium transition duration-200 cursor-pointer flex items-center justify-center gap-2">
-                                <i data-lucide="user" class="w-3.5 h-3.5 text-neutral-500"></i> ¿Quién es Luca?
-                            </button>
-                            <button onclick="enviarSugerencia('¿Qué proyectos tiene?')" class="py-2.5 px-3 bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 rounded-xl text-xs text-neutral-300 font-medium transition duration-200 cursor-pointer flex items-center justify-center gap-2">
-                                <i data-lucide="folder" class="w-3.5 h-3.5 text-neutral-500"></i> ¿Qué proyectos tiene?
-                            </button>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button onclick="enviarSugerencia('¿Qué tecnologías usa?')" class="py-2.5 px-3 bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 rounded-xl text-xs text-neutral-300 font-medium transition duration-200 cursor-pointer flex items-center justify-center gap-2">
-                                <i data-lucide="code" class="w-3.5 h-3.5 text-neutral-500"></i> ¿Qué tecnologías usa?
-                            </button>
-                            <button onclick="enviarSugerencia('Hablemos sobre su educación')" class="py-2.5 px-3 bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 rounded-xl text-xs text-neutral-300 font-medium transition duration-200 cursor-pointer flex items-center justify-center gap-2">
-                                <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-neutral-500"></i> Su educación
-                            </button>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button onclick="enviarSugerencia('Activar modo reclutador')" class="py-2.5 px-3 bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 rounded-xl text-xs text-neutral-300 font-medium transition duration-200 cursor-pointer flex items-center justify-center gap-2">
-                                <i data-lucide="briefcase" class="w-3.5 h-3.5 text-neutral-500"></i> Modo reclutador
-                            </button>
-                            <button onclick="document.getElementById('chat-input').focus()" class="py-2.5 px-3 bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800 rounded-xl text-xs text-neutral-300 font-medium transition duration-200 cursor-pointer flex items-center justify-center gap-2">
-                                <i data-lucide="send" class="w-3.5 h-3.5 text-neutral-500"></i> Enviar mensaje
-                            </button>
+                    <!-- Sugerencias de Clic Rápido -->
+                    <div class="space-y-2">
+                        <p class="text-[10px] uppercase text-neutral-500 tracking-wider font-semibold">Consultas sugeridas</p>
+                        <div class="flex flex-col gap-2">
+                            <button onclick="enviarSugerencia('¿Quién es Luca?')" class="w-full text-left bg-neutral-900 hover:bg-neutral-900/80 border border-neutral-800/80 px-3 py-2.5 rounded-xl text-[11px] text-neutral-300 font-light transition-all cursor-pointer">¿Quién es Luca?</button>
+                            <button onclick="enviarSugerencia('¿Qué tecnologías usa?')" class="w-full text-left bg-neutral-900 hover:bg-neutral-900/80 border border-neutral-800/80 px-3 py-2.5 rounded-xl text-[11px] text-neutral-300 font-light transition-all cursor-pointer">¿Qué tecnologías usa?</button>
+                            <button onclick="enviarSugerencia('¿Qué proyectos tiene?')" class="w-full text-left bg-neutral-900 hover:bg-neutral-900/80 border border-neutral-800/80 px-3 py-2.5 rounded-xl text-[11px] text-neutral-300 font-light transition-all cursor-pointer">¿Qué proyectos tiene?</button>
+                            <button onclick="enviarSugerencia('Activar Modo Reclutador')" class="w-full text-left bg-crimson-600/10 hover:bg-crimson-600/20 border border-crimson-600/20 px-3 py-2.5 rounded-xl text-[11px] text-crimson-400 font-medium transition-all cursor-pointer">Activar Modo Reclutador</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Historial Dinámico -->
-                <div id="dynamic-messages" class="space-y-4 pt-4 hidden w-full"></div>
+                <!-- Contenedor Dinámico para Mensajes del Historial -->
+                <div id="dynamicMessages" class="space-y-4 hidden"></div>
 
-                <!-- Indicador de Carga -->
-                <div id="loading-indicator" class="hidden flex justify-start pt-2">
-                    <div class="bg-neutral-900 border border-neutral-800 px-4 py-2.5 rounded-2xl text-neutral-400 text-xs flex items-center gap-1.5 shadow-sm">
-                        <span class="flex gap-1">
-                            <span class="w-1.5 h-1.5 bg-neutral-500 rounded-full animate-bounce" style="animation-delay: 0ms"></span>
-                            <span class="w-1.5 h-1.5 bg-neutral-500 rounded-full animate-bounce" style="animation-delay: 150ms"></span>
-                            <span class="w-1.5 h-1.5 bg-neutral-500 rounded-full animate-bounce" style="animation-delay: 300ms"></span>
-                        </span>
-                        <span class="ml-1 text-neutral-500 font-medium">Procesando...</span>
+                <!-- Indicador de Carga (Efecto Pensando) -->
+                <div id="loadingIndicator" class="flex items-start space-x-2.5 hidden">
+                    <div class="w-7 h-7 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-xs">🤖</div>
+                    <div class="bg-neutral-900 border border-neutral-800 px-3.5 py-2 rounded-2xl rounded-tl-none flex space-x-1 items-center h-8">
+                        <div class="w-1 h-1 bg-neutral-400 rounded-full animate-bounce" style="animation-delay: 0ms"></div>
+                        <div class="w-1 h-1 bg-neutral-400 rounded-full animate-bounce" style="animation-delay: 150ms"></div>
+                        <div class="w-1 h-1 bg-neutral-400 rounded-full animate-bounce" style="animation-delay: 300ms"></div>
                     </div>
                 </div>
-
             </div>
 
-            <!-- Entrada de Texto -->
-            <div class="p-4 px-6 bg-transparent border-t border-neutral-900">
-                <form id="chat-form" class="flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-2xl px-4 py-3 focus-within:border-neutral-700 transition-all duration-200">
-                    <input
-                        id="chat-input"
-                        type="text"
-                        placeholder="¿Cuál es tu duda?"
-                        autocomplete="off"
-                        class="bg-transparent flex-1 outline-none text-sm text-white placeholder-neutral-500 w-full font-medium"
-                    />
-                    <button type="submit" class="w-7 h-7 bg-neutral-800 hover:bg-neutral-700 hover:text-white text-neutral-400 rounded-full flex items-center justify-center transition cursor-pointer" title="Enviar">
-                        <i data-lucide="arrow-up" class="w-4 h-4"></i>
-                    </button>
-                </form>
+            <!-- Entrada de Texto / Input del Chat -->
+            <div class="p-3 border-t border-neutral-900 bg-neutral-950 flex items-center gap-2">
+                <input type="text" id="chatInput" onkeypress="manejarKeyPress(e || event)" placeholder="Escribí tu mensaje acá..." class="flex-1 bg-neutral-900 border border-neutral-800/80 text-neutral-200 placeholder-neutral-500 rounded-xl px-3 py-2.5 text-xs font-light tracking-wide focus:outline-none focus:border-neutral-700 transition-colors">
+                <button onclick="enviarMensajeInput()" class="bg-crimson-600 hover:bg-crimson-700 text-white w-9 h-9 rounded-xl flex items-center justify-center transition-colors shadow-sm cursor-pointer shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                    </svg>
+                </button>
             </div>
 
         </div>
     </div>
 
-
+    <!-- SCRIPT DE LOGICA Y RESPUESTAS DEL CHATBOT -->
     <script>
-        // Inicialización de Iconos Lucide
-        lucide.createIcons();
+        const chatPanel = document.getElementById('chatPanel');
+        const chatContent = document.getElementById('chatContent');
+        const chatBody = document.getElementById('chatBody');
+        const chatInput = document.getElementById('chatInput');
+        const chatWelcome = document.getElementById('chatWelcome');
+        const dynamicMessages = document.getElementById('dynamicMessages');
+        const loadingIndicator = document.getElementById('loadingIndicator');
 
-        // Elementos del DOM
-        const btnCloseCommand = document.getElementById('btn-close-command');
-        const btnResetChat = document.getElementById('btn-reset-chat');
-        const commandOverlay = document.getElementById('command-overlay');
-        const commandPanel = document.getElementById('command-panel');
-        const chatForm = document.getElementById('chat-form');
-        const chatInput = document.getElementById('chat-input');
-        const dynamicMessages = document.getElementById('dynamic-messages');
-        const loadingIndicator = document.getElementById('loading-indicator');
-        const chatMessagesArea = document.getElementById('chat-messages');
-        const chatWelcome = document.getElementById('chat-welcome');
-
-        // Configuración de API del bot
-        const API_URL = 'http://localhost:8000/api/chat';
-        let escribiendoEfecto = false;
-
+        // Tu Diccionario Original de Respuestas Locales Recuperado por Completo
         const RESPUESTAS_LOCALES = {
             "contacto": "Podés contactar a Luca a través de su correo electrónico o redes sociales si activás el Modo Reclutador.",
             "perfil": "Luca es un desarrollador y estudiante de ingeniería de software de 22 años, enfocado en el desarrollo con Python y la integración de Inteligencia Artificial.",
@@ -613,213 +169,121 @@
             "activar modo reclutador": "¡Modo Reclutador Activo! Luca está disponible para puestos en desarrollo de software o roles de atención al cliente y reposición. Podés contactarlo para agendar una entrevista."
         };
 
-        // Funciones del Modal de Chat
         function abrirPanel() {
-            commandOverlay.classList.remove('hidden');
-            setTimeout(() => {
-                commandPanel.classList.remove('opacity-0', 'scale-95');
-                commandPanel.classList.add('opacity-100', 'scale-100', 'animate-modal');
-                chatInput.focus();
-            }, 10);
+            chatPanel.classList.remove('pointer-events-none', 'opacity-0');
+            chatPanel.classList.add('opacity-100');
+            chatContent.classList.remove('translate-x-full');
+            chatContent.classList.add('translate-x-0');
+            chatInput.focus();
         }
 
         function cerrarPanel() {
-            commandPanel.classList.remove('opacity-100', 'scale-100', 'animate-modal');
-            commandPanel.classList.add('opacity-0', 'scale-95');
-            setTimeout(() => {
-                commandOverlay.classList.add('hidden');
-            }, 250);
+            chatContent.classList.remove('translate-x-0');
+            chatContent.classList.add('translate-x-full');
+            chatPanel.classList.remove('opacity-100');
+            chatPanel.classList.add('opacity-0', 'pointer-events-none');
         }
 
-        btnCloseCommand.addEventListener('click', cerrarPanel);
-        commandOverlay.addEventListener('click', (e) => {
-            if (e.target === commandOverlay) cerrarPanel();
-        });
+        function scrollAlFinal() {
+            chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+        }
 
-        window.addEventListener('keydown', (e) => {
-            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-                e.preventDefault();
-                commandOverlay.classList.contains('hidden') ? abrirPanel() : cerrarPanel();
+        function manejarKeyPress(e) {
+            if (e.key === 'Enter') {
+                enviarMensajeInput();
             }
-            if (e.key === 'Escape' && !commandOverlay.classList.contains('hidden')) {
-                cerrarPanel();
-            }
-        });
+        }
 
-        chatForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            if (escribiendoEfecto) return;
-            const mensaje = chatInput.value.trim();
-            if (mensaje) {
-                procesarEnvio(mensaje);
-                chatInput.value = '';
-            }
-        });
-
-        function enviarSugerencia(texto) {
-            if (escribiendoEfecto) return;
+        function enviarMensajeInput() {
+            const texto = chatInput.value;
+            if (!texto.trim()) return;
+            chatInput.value = '';
             procesarEnvio(texto);
         }
 
-        async procesarEnvio(texto) {
-    if (!chatWelcome.classList.contains('hidden')) {
-        chatWelcome.classList.add('hidden');
-        dynamicMessages.classList.remove('hidden');
-    }
-
-    agregarMensajeHTML(texto, 'usuario');
-    loadingIndicator.classList.remove('hidden');
-    scrollAlFinal();
-
-    const textoNormalizado = texto.toLowerCase().trim();
-    let respuestaBot = null;
-
-    // Busca primero en tus RESPUESTAS_LOCALES
-    for (const clave in RESPUESTAS_LOCALES) {
-        if (textoNormalizado.includes(clave)) {
-            respuestaBot = RESPUESTES_LOCALES[clave];
-            break; 
-        }
-    }
-
-    // Si no encuentra una palabra clave, tira una respuesta por defecto en vez de romperse
-    if (!respuestaBot) {
-        respuestaBot = "¡Hola! Estoy procesando tu consulta sobre automatizaciones. ¿Te gustaría que analicemos un sistema a medida para tu negocio?";
-    }
-    
-    // Simulamos una mini espera para mantener el efecto premium
-    await new Promise(resolve => setTimeout(resolve, 600));
-    
-    loadingIndicator.classList.add('hidden');
-    await agregarMensajeEfectoMaquina(respuestaBot);
-    scrollAlFinal();
-}
-
-            } catch (error) {
-                console.error(error);
-                loadingIndicator.classList.add('hidden');
-                agregarMensajeHTML("Hubo un error al conectar con el servidor.", 'asistente');
-            } finally {
-                scrollAlFinal();
-            }
+        function enviarSugerencia(texto) {
+            procesarEnvio(texto);
         }
 
         function agregarMensajeHTML(texto, remitente) {
-            const wrapper = crearContenedorMensaje(remitente);
-            wrapper.querySelector('.bubble-text').textContent = texto;
-            dynamicMessages.appendChild(wrapper);
-            scrollAlFinal();
-        }
-
-        function crearContenedorMensaje(remitente) {
-            const wrapper = document.createElement('div');
-            wrapper.className = `flex flex-col ${remitente === 'usuario' ? 'items-end' : 'items-start'} space-y-1 w-full`;
-
-            const label = document.createElement('span');
-            label.className = `text-[10px] font-bold uppercase tracking-wider px-1 ${remitente === 'usuario' ? 'text-neutral-600' : 'text-crimson-400'}`;
-            label.textContent = remitente === 'usuario' ? 'Vos' : 'Asistente';
-            wrapper.appendChild(label);
-
-            const bubble = document.createElement('div');
-            bubble.className = `bubble-text max-w-[85%] p-3.5 rounded-2xl text-sm leading-relaxed ${
-                remitente === 'usuario' 
-                    ? 'bg-neutral-800 text-white font-medium' 
-                    : 'bg-neutral-900 border border-neutral-800 text-neutral-200 whitespace-pre-line'
-            }`;
+            const burbuja = document.createElement('div');
+            burbuja.className = `flex items-start space-x-2.5 ${remitente === 'usuario' ? 'justify-end' : ''}`;
             
-            wrapper.appendChild(bubble);
-            return wrapper;
+            if (remitente === 'usuario') {
+                burbuja.innerHTML = `
+                    <div class="bg-crimson-600 text-white px-3.5 py-2 rounded-2xl rounded-tr-none text-[11px] tracking-wide max-w-[75%] font-light shadow-sm leading-relaxed">${texto}</div>
+                `;
+            } else {
+                burbuja.innerHTML = `
+                    <div class="w-7 h-7 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-xs">🤖</div>
+                    <div class="bg-neutral-900 border border-neutral-800 px-3.5 py-2 rounded-2xl rounded-tl-none text-[11px] text-neutral-200 tracking-wide max-w-[75%] font-light shadow-sm leading-relaxed">${texto}</div>
+                `;
+            }
+            dynamicMessages.appendChild(burbuja);
         }
 
-        function agregarMensajeEfectoMaquina(texto) {
-            return new Promise((resolve) => {
-                escribiendoEfecto = true;
-                const wrapper = crearContenedorMensaje('asistente');
-                const bubble = wrapper.querySelector('.bubble-text');
-                dynamicMessages.appendChild(wrapper);
+        async function agregarMensajeEfectoMaquina(texto) {
+            const burbuja = document.createElement('div');
+            burbuja.className = "flex items-start space-x-2.5";
+            
+            const avatar = document.createElement('div');
+            avatar.className = "w-7 h-7 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-xs";
+            avatar.innerText = "🤖";
+            
+            const contenedorTexto = document.createElement('div');
+            contenedorTexto.className = "bg-neutral-900 border border-neutral-800 px-3.5 py-2 rounded-2xl rounded-tl-none text-[11px] text-neutral-200 tracking-wide max-w-[75%] font-light shadow-sm leading-relaxed";
+            
+            burbuja.appendChild(avatar);
+            burbuja.appendChild(contenedorTexto);
+            dynamicMessages.appendChild(burbuja);
 
-                let i = 0;
-                function tipear() {
+            let i = 0;
+            return new Promise((resolve) => {
+                function escribir() {
                     if (i < texto.length) {
-                        bubble.textContent += texto.charAt(i);
+                        contenedorTexto.innerHTML += texto.charAt(i);
                         i++;
                         scrollAlFinal();
-                        const pausa = texto.charAt(i-1) === '.' || texto.charAt(i-1) === ',' ? 150 : 12;
-                        setTimeout(tipear, pausa);
+                        setTimeout(escribir, 12);
                     } else {
-                        escribiendoEfecto = false;
                         resolve();
                     }
                 }
-                tipear();
+                escribir();
             });
         }
 
-        btnResetChat.addEventListener('click', () => {
-            if (escribiendoEfecto) return;
-            dynamicMessages.innerHTML = '';
-            dynamicMessages.classList.add('hidden');
-            loadingIndicator.classList.add('hidden');
-            chatWelcome.classList.remove('hidden');
-            chatInput.value = '';
-            chatInput.focus();
-        });
+        async function procesarEnvio(texto) {
+            if (chatWelcome && !chatWelcome.classList.contains('hidden')) {
+                chatWelcome.classList.add('hidden');
+                dynamicMessages.classList.remove('hidden');
+            }
 
-        function scrollAlFinal() {
-            chatMessagesArea.scrollTo({
-                top: chatMessagesArea.scrollHeight,
-                behavior: 'smooth'
-            });
-        }
+            agregarMensajeHTML(texto, 'usuario');
+            loadingIndicator.classList.remove('hidden');
+            scrollAlFinal();
 
-        // Funciones de Scroll y Animaciones Originales
-        function scrollToTopAndReload() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            const checkScroll = setInterval(() => {
-                if (window.scrollY === 0) {
-                    clearInterval(checkScroll);
-                    location.reload();
+            const textoNormalizado = texto.toLowerCase().trim();
+            let respuestaBot = null;
+
+            // Búsqueda inteligente por coincidencia de palabras clave
+            for (const clave in RESPUESTAS_LOCALES) {
+                if (textoNormalizado.includes(clave.toLowerCase())) {
+                    respuestaBot = RESPUESTAS_LOCALES[clave];
+                    break; 
                 }
-            }, 50);
+            }
+
+            if (!respuestaBot) {
+                respuestaBot = "No encontré una respuesta específica para eso en el perfil de Luca. Podés intentar preguntarme sobre su 'perfil', sus 'proyectos' o 'activar modo reclutador'.";
+            }
+            
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            loadingIndicator.classList.add('hidden');
+            await agregarMensajeEfectoMaquina(respuestaBot);
+            scrollAlFinal();
         }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const items = document.querySelectorAll('.timeline-item');
-            const container = document.getElementById('timeline-section');
-
-            const observerOptions = {
-                root: null,
-                rootMargin: '-40% 0px -40% 0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const step = parseInt(entry.target.getAttribute('data-step'));
-                        const alpineData = Alpine.$data(container);
-                        if (alpineData) {
-                            alpineData.activeStep = step;
-                        }
-                    }
-                });
-            }, observerOptions);
-
-            items.forEach(item => observer.observe(item));
-
-            const revealElements = document.querySelectorAll('.reveal');
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        revealObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.15 });
-
-            revealElements.forEach(el => revealObserver.observe(el));
-        });
     </script>
-
 </body>
 </html>
