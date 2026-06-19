@@ -3,69 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Luca Baldiviezo</title>
+    <title>LucAI — Sistemas a Medida</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Alpine.js CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Google Fonts: Syne, Lora y Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    
     <style>
-        /* Paleta y clases personalizadas originales */
-        .bg-crimson-600 { background-color: #dc2626; }
-        .hover\:bg-crimson-700:hover { background-color: #b91c1c; }
-        .text-crimson-400 { color: #f87171; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .font-display {
+            font-family: 'Syne', sans-serif;
+        }
+        .font-serif-custom {
+            font-family: 'Lora', serif;
+        }
     </style>
 </head>
-<body class="bg-neutral-950 text-neutral-100 min-h-screen font-sans selection:bg-crimson-600 selection:text-white">
+<body x-data="{ chatOpen: false, modalPremium: false }" 
+      @keydown.window.prevent.ctrl.k="modalPremium = true"
+      class="bg-neutral-950 text-neutral-100 min-h-screen selection:bg-red-600 selection:text-white antialiased">
 
-    <main class="max-w-4xl mx-auto px-6 py-12">
-        <header class="mb-16 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6 border-b border-neutral-900 pb-10">
-            <div>
-                <h1 class="text-4xl font-bold tracking-tight bg-gradient-to-r from-white to-neutral-500 bg-clip-text text-transparent">Luca Baldiviezo</h1>
-                <p class="text-neutral-400 mt-2 text-sm font-light tracking-wide">Desarrollador Full Stack & Estudiante de Ingeniería de Software</p>
-                <div class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
-                    <span class="px-2.5 py-1 text-[10px] bg-neutral-900 border border-neutral-800 rounded text-neutral-400 tracking-wider uppercase font-semibold">Python / IA</span>
-                    <span class="px-2.5 py-1 text-[10px] bg-neutral-900 border border-neutral-800 rounded text-neutral-400 tracking-wider uppercase font-semibold">JavaScript</span>
-                    <span class="px-2.5 py-1 text-[10px] bg-neutral-900 border border-neutral-800 rounded text-neutral-400 tracking-wider uppercase font-semibold">Tailwind CSS</span>
-                </div>
+    <!-- HERO / INTERFAZ PRINCIPAL -->
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-24">
+        <!-- Navbar Minimalista -->
+        <nav class="flex justify-between items-center mb-20 border-b border-neutral-900 pb-6">
+            <div class="flex items-center space-x-3">
+                <span class="text-xl font-display font-bold tracking-tight text-white">Luc<span class="text-red-500">AI</span></span>
+                <span class="text-[10px] bg-neutral-900 border border-neutral-800 text-neutral-400 px-2 py-0.5 rounded-full uppercase tracking-wider font-semibold">v1.2 Local</span>
             </div>
-            
-            <button onclick="abrirPanel()" class="flex items-center space-x-2 bg-neutral-900 border border-neutral-800 hover:border-neutral-700 text-neutral-200 px-5 py-2.5 rounded-xl text-xs font-medium tracking-wide transition-all shadow-sm cursor-pointer group">
-                <span>Preguntarle a LucAI</span>
-                <span class="text-crimson-400 group-hover:translate-x-1 transition-transform">→</span>
+            <button @click="chatOpen = true" class="bg-neutral-900 border border-neutral-800 hover:border-neutral-700 text-neutral-200 px-4 py-2 rounded-xl text-xs font-medium tracking-wide transition-all shadow-sm cursor-pointer group">
+                Abrir Consola Inteligente <span class="text-red-500 group-hover:translate-x-1 inline-block transition-transform ml-1">→</span>
             </button>
+        </nav>
+
+        <!-- Contenido Principal -->
+        <header class="max-w-2xl mb-16">
+            <h2 class="text-4xl md:text-5xl font-display font-bold tracking-tight text-white leading-tight">
+                Automatizá tu negocio con <span class="font-serif-custom italic font-normal text-neutral-400">inteligencia artificial</span> a medida.
+            </h2>
+            <p class="text-neutral-400 mt-4 text-sm font-light leading-relaxed max-w-lg">
+                Diseño de agentes autónomos, optimización de flujos de trabajo y sistemas embebidos locales para transformar interacciones en datos estratégicos.
+            </p>
         </header>
 
-        <section class="mb-12">
-            <h2 class="text-lg font-semibold tracking-wide mb-6 text-neutral-200">Proyectos Destacados</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-neutral-900/40 border border-neutral-900 p-5 rounded-2xl">
-                    <h3 class="text-sm font-medium text-neutral-200">LucAI — Asistente de IA Integrado</h3>
-                    <p class="text-neutral-400 text-xs font-light mt-2 leading-relaxed">Agente conversacional inteligente autónomo integrado en el portfolio para responder consultas sobre stack, experiencia y lógica local.</p>
-                </div>
-                <div class="bg-neutral-900/40 border border-neutral-900 p-5 rounded-2xl">
-                    <h3 class="text-sm font-medium text-neutral-200">Herramientas de Automatización</h3>
-                    <p class="text-neutral-400 text-xs font-light mt-2 leading-relaxed">Scripts funcionales en Python diseñados para optimización de procesos domésticos, cálculos precisos y procesamiento inteligente de datos.</p>
-                </div>
+        <!-- Módulos Interactivos (Tabs del Negocio Simulados) -->
+        <div x-data="{ tab: 'chatbot' }" class="border border-neutral-900 bg-neutral-900/20 rounded-3xl p-6 backdrop-blur-md">
+            <div class="flex border-b border-neutral-900 pb-4 mb-6 space-x-4">
+                <button @click="tab = 'chatbot'" :class="tab === 'chatbot' ? 'text-white border-b-2 border-red-500 pb-4 -mb-[18px]' : 'text-neutral-500'" class="text-xs font-medium tracking-wider uppercase cursor-pointer transition-colors">Agente IA</button>
+                <button @click="tab = 'analytics'" :class="tab === 'analytics' ? 'text-white border-b-2 border-red-500 pb-4 -mb-[18px]' : 'text-neutral-500'" class="text-xs font-medium tracking-wider uppercase cursor-pointer transition-colors">Analytics</button>
+                <button @click="tab = 'stock'" :class="tab === 'stock' ? 'text-white border-b-2 border-red-500 pb-4 -mb-[18px]' : 'text-neutral-500'" class="text-xs font-medium tracking-wider uppercase cursor-pointer transition-colors">Control Stock</button>
             </div>
-        </section>
-    </main>
 
-    <div id="chatPanel" class="fixed inset-0 bg-black/60 backdrop-blur-xs opacity-0 pointer-events-none transition-opacity duration-300 z-50 flex justify-end">
+            <!-- Contenidos Dinámicos de las Pestañas -->
+            <div x-show="tab === 'chatbot'" class="space-y-2">
+                <h4 class="text-sm font-medium text-neutral-200">Simulación del Chatbot Corporativo</h4>
+                <p class="text-xs text-neutral-400 font-light leading-relaxed">El bot integrado en la barra lateral utiliza un enrutamiento híbrido: responde de forma instantánea mediante un diccionario local optimizado para preguntas frecuentes y deriva las consultas complejas al servidor local mediante ingeniería de prompts.</p>
+            </div>
+            <div x-show="tab === 'analytics'" class="space-y-2" style="display: none;">
+                <h4 class="text-sm font-medium text-neutral-200">Mapeo de Datos en Tiempo Real</h4>
+                <p class="text-xs text-neutral-400 font-light leading-relaxed">Monitoreá las interacciones, las intenciones de compra detectadas por el modelo y las tasas de conversión de la landing de manera centralizada.</p>
+            </div>
+            <div x-show="tab === 'stock'" class="space-y-2" style="display: none;">
+                <h4 class="text-sm font-medium text-neutral-200">Automatización de Inventario</h4>
+                <p class="text-xs text-neutral-400 font-light leading-relaxed">Alerta de faltantes conectada directamente con scripts automáticos que generan reportes de reposición basados en la demanda histórica.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANEL FLOTANTE LATERAL (CHATBOT DE LUCA) -->
+    <div x-show="chatOpen" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex justify-end" 
+         x-transition:enter="transition opacity-0 duration-300" 
+         x-transition:enter-start="opacity-0" 
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition opacity-100 duration-300"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0" style="display: none;">
         
-        <div id="chatContent" class="w-full max-w-md bg-neutral-950 border-l border-neutral-900 h-full flex flex-col justify-between translate-x-full transition-transform duration-300 ease-out shadow-2xl">
+        <!-- Contenedor del Chat Deslizable -->
+        <div @click.away="chatOpen = false" 
+             class="w-full max-w-md bg-neutral-950 border-l border-neutral-900 h-full flex flex-col justify-between shadow-2xl"
+             x-transition:enter="transition transform duration-300 ease-out"
+             x-transition:enter-start="translate-x-full"
+             x-transition:enter-end="translate-x-0"
+             x-transition:leave="transition transform duration-300 ease-in"
+             x-transition:leave-start="translate-x-0"
+             x-transition:leave-end="translate-x-full">
             
+            <!-- Encabezado -->
             <div class="p-4 border-b border-neutral-900 flex items-center justify-between bg-neutral-950">
                 <div class="flex items-center space-x-3">
-                    <div class="w-8 h-8 rounded-full bg-crimson-600/10 border border-crimson-600/20 flex items-center justify-center text-sm">🤖</div>
+                    <div class="w-8 h-8 rounded-full bg-red-600/10 border border-red-600/20 flex items-center justify-center text-sm">🤖</div>
                     <div>
-                        <h3 class="text-xs font-medium text-neutral-200 tracking-wide">LucAI</h3>
+                        <h3 class="text-xs font-medium text-neutral-200 tracking-wide font-display">LucAI Chat Engine</h3>
                         <p class="text-[10px] text-emerald-400 font-light flex items-center gap-1">
-                            <span class="w-1 h-1 rounded-full bg-emerald-400 inline-block animate-pulse"></span> Activo de forma local
+                            <span class="w-1 h-1 rounded-full bg-emerald-400 inline-block animate-pulse"></span> Modo Híbrido Activo
                         </p>
                     </div>
                 </div>
-                <button onclick="cerrarPanel()" class="text-neutral-400 hover:text-white text-sm p-1 cursor-pointer transition-colors">✕</button>
+                <button @click="chatOpen = false" class="text-neutral-400 hover:text-white text-sm p-1 cursor-pointer transition-colors">✕</button>
             </div>
 
+            <!-- Cuerpo de Mensajes -->
             <div id="chatBody" class="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin">
-                
+                <!-- Pantalla de Bienvenida -->
                 <div id="chatWelcome" class="space-y-6 py-4">
                     <div class="text-center space-y-2">
                         <p class="text-neutral-300 text-xs font-light px-4 leading-relaxed">¡Hola! Soy LucAI, el asistente automatizado del portfolio de Luca. ¿Qué te gustaría saber sobre él?</p>
@@ -77,45 +123,59 @@
                             <button onclick="enviarSugerencia('¿Quién es Luca?')" class="w-full text-left bg-neutral-900 hover:bg-neutral-900/80 border border-neutral-800/80 px-3 py-2.5 rounded-xl text-[11px] text-neutral-300 font-light transition-all cursor-pointer">¿Quién es Luca?</button>
                             <button onclick="enviarSugerencia('¿Qué tecnologías usa?')" class="w-full text-left bg-neutral-900 hover:bg-neutral-900/80 border border-neutral-800/80 px-3 py-2.5 rounded-xl text-[11px] text-neutral-300 font-light transition-all cursor-pointer">¿Qué tecnologías usa?</button>
                             <button onclick="enviarSugerencia('¿Qué proyectos tiene?')" class="w-full text-left bg-neutral-900 hover:bg-neutral-900/80 border border-neutral-800/80 px-3 py-2.5 rounded-xl text-[11px] text-neutral-300 font-light transition-all cursor-pointer">¿Qué proyectos tiene?</button>
-                            <button onclick="enviarSugerencia('Activar Modo Reclutador')" class="w-full text-left bg-crimson-600/10 hover:bg-crimson-600/20 border border-crimson-600/20 px-3 py-2.5 rounded-xl text-[11px] text-crimson-400 font-medium transition-all cursor-pointer">Activar Modo Reclutador</button>
+                            <button onclick="enviarSugerencia('Activar Modo Reclutador')" class="w-full text-left bg-red-600/10 hover:bg-red-600/20 border border-red-600/20 px-3 py-2.5 rounded-xl text-[11px] text-red-400 font-medium transition-all cursor-pointer">Activar Modo Reclutador</button>
                         </div>
                     </div>
                 </div>
 
+                <!-- Historial de Conversación Dinámica -->
                 <div id="dynamicMessages" class="space-y-4 hidden"></div>
 
+                <!-- Efecto Cargando -->
                 <div id="loadingIndicator" class="flex items-start space-x-2.5 hidden">
                     <div class="w-7 h-7 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-xs">🤖</div>
                     <div class="bg-neutral-900 border border-neutral-800 px-3.5 py-2 rounded-2xl rounded-tl-none flex space-x-1 items-center h-8">
-                        <div class="w-1 h-1 bg-neutral-400 rounded-full animate-bounce" style="animation-delay: 0ms"></div>
-                        <div class="w-1 h-1 bg-neutral-400 rounded-full animate-bounce" style="animation-delay: 150ms"></div>
-                        <div class="w-1 h-1 bg-neutral-400 rounded-full animate-bounce" style="animation-delay: 300ms"></div>
+                        <div class="w-1.5 h-1.5 bg-neutral-400 rounded-full animate-bounce" style="animation-delay: 0ms"></div>
+                        <div class="w-1.5 h-1.5 bg-neutral-400 rounded-full animate-bounce" style="animation-delay: 150ms"></div>
+                        <div class="w-1.5 h-1.5 bg-neutral-400 rounded-full animate-bounce" style="animation-delay: 300ms"></div>
                     </div>
                 </div>
             </div>
 
+            <!-- Input del Chat -->
             <div class="p-3 border-t border-neutral-900 bg-neutral-950 flex items-center gap-2">
-                <input type="text" id="chatInput" onkeypress="manejarKeyPress(e || event)" placeholder="Escribí tu mensaje acá..." class="flex-1 bg-neutral-900 border border-neutral-800/80 text-neutral-200 placeholder-neutral-500 rounded-xl px-3 py-2.5 text-xs font-light tracking-wide focus:outline-none focus:border-neutral-700 transition-colors">
-                <button onclick="enviarMensajeInput()" class="bg-crimson-600 hover:bg-crimson-700 text-white w-9 h-9 rounded-xl flex items-center justify-center transition-colors shadow-sm cursor-pointer shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
-                    </svg>
+                <input type="text" id="chatInput" onkeypress="manejarKeyPress(e || event)" placeholder="Escribí un mensaje o comando oculto..." class="flex-1 bg-neutral-900 border border-neutral-800/80 text-neutral-200 placeholder-neutral-500 rounded-xl px-3 py-2.5 text-xs font-light tracking-wide focus:outline-none focus:border-neutral-700 transition-colors">
+                <button onclick="enviarMensajeInput()" class="bg-red-600 hover:bg-red-700 text-white w-9 h-9 rounded-xl flex items-center justify-center transition-colors shadow-sm cursor-pointer shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" /></svg>
                 </button>
             </div>
-
         </div>
     </div>
 
+    <!-- MODAL PREMIUM (ACCESIBLE CON CTRL + K) -->
+    <div x-show="modalPremium" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4" style="display: none;">
+        <div @click.away="modalPremium = false" class="bg-neutral-900 border border-neutral-800 w-full max-w-md rounded-3xl p-6 shadow-2xl relative space-y-4">
+            <button @click="modalPremium = false" class="absolute top-4 right-4 text-neutral-500 hover:text-white text-xs cursor-pointer">✕</button>
+            <div class="text-center space-y-2">
+                <span class="text-xs bg-red-600/10 border border-red-600/20 text-red-400 px-3 py-1 rounded-full font-medium">Panel Ejecutivo</span>
+                <h3 class="text-base font-display font-bold text-white mt-2">¿Listo para escalar al Modo Premium?</h3>
+                <p class="text-xs text-neutral-400 font-light leading-relaxed px-2">Desbloqueá métricas avanzadas, integraciones con APIs propietarias y despliegue del agente autónomo en servidores en la nube de producción.</p>
+            </div>
+            <div class="pt-2">
+                <button @click="modalPremium = false; chatOpen = true; setTimeout(() => { enviarSugerencia('Activar Modo Reclutador') }, 400)" class="w-full bg-red-600 hover:bg-red-700 text-white font-medium text-xs py-3 rounded-xl transition-all cursor-pointer shadow-md">Agendar Consultoría Estrecha</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT ORIGINAL DE LÓGICA E INFERENCIA LOCAL -->
     <script>
-        const chatPanel = document.getElementById('chatPanel');
-        const chatContent = document.getElementById('chatContent');
         const chatBody = document.getElementById('chatBody');
         const chatInput = document.getElementById('chatInput');
         const chatWelcome = document.getElementById('chatWelcome');
         const dynamicMessages = document.getElementById('dynamicMessages');
         const loadingIndicator = document.getElementById('loadingIndicator');
 
-        // Tu diccionario de respuestas al completo
+        // TU DICCIONARIO DE RESPUESTAS LOCALES COMPLETO
         const RESPUESTAS_LOCALES = {
             "contacto": "Podés contactar a Luca a través de su correo electrónico o redes sociales si activás el Modo Reclutador.",
             "perfil": "Luca es un desarrollador y estudiante de ingeniería de software de 22 años, enfocado en el desarrollo con Python y la integración de Inteligencia Artificial.",
@@ -154,20 +214,7 @@
             "activar modo reclutador": "¡Modo Reclutador Activo! Luca está disponible para puestos en desarrollo de software o roles de atención al cliente y reposición. Podés contactarlo para agendar una entrevista."
         };
 
-        function abrirPanel() {
-            chatPanel.classList.remove('pointer-events-none', 'opacity-0');
-            chatPanel.classList.add('opacity-100');
-            chatContent.classList.remove('translate-x-full');
-            chatContent.classList.add('translate-x-0');
-            chatInput.focus();
-        }
-
-        function cerrarPanel() {
-            chatContent.classList.remove('translate-x-0');
-            chatContent.classList.add('translate-x-full');
-            chatPanel.classList.remove('opacity-100');
-            chatPanel.classList.add('opacity-0', 'pointer-events-none');
-        }
+        const API_URL = "http://localhost:8000/api/chat";
 
         function scrollAlFinal() {
             chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
@@ -196,7 +243,7 @@
             
             if (remitente === 'usuario') {
                 burbuja.innerHTML = `
-                    <div class="bg-crimson-600 text-white px-3.5 py-2 rounded-2xl rounded-tr-none text-[11px] tracking-wide max-w-[75%] font-light shadow-sm leading-relaxed">${texto}</div>
+                    <div class="bg-red-600 text-white px-3.5 py-2 rounded-2xl rounded-tr-none text-[11px] tracking-wide max-w-[75%] font-light shadow-sm leading-relaxed">${texto}</div>
                 `;
             } else {
                 burbuja.innerHTML = `
@@ -229,7 +276,7 @@
                         contenedorTexto.innerHTML += texto.charAt(i);
                         i++;
                         scrollAlFinal();
-                        setTimeout(escribir, 12);
+                        setTimeout(escribir, 10);
                     } else {
                         resolve();
                     }
@@ -251,7 +298,7 @@
             const textoNormalizado = texto.toLowerCase().trim();
             let respuestaBot = null;
 
-            // Búsqueda por coincidencia
+            // 1. Verificar coincidencia en el diccionario local híbrido
             for (const clave in RESPUESTAS_LOCALES) {
                 if (textoNormalizado.includes(clave.toLowerCase())) {
                     respuestaBot = RESPUESTAS_LOCALES[clave];
@@ -259,11 +306,27 @@
                 }
             }
 
+            // 2. Si no coincide localmente, realizar petición Fetch al servidor backend local (puerto 8000)
             if (!respuestaBot) {
-                respuestaBot = "No encontré una respuesta específica para eso en el perfil de Luca. Podés intentar preguntarme sobre su 'perfil', sus 'proyectos' o 'activar modo reclutador'.";
+                try {
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ mensaje: texto })
+                    });
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        respuestaBot = data.respuesta;
+                    } else {
+                        respuestaBot = "El servidor local no pudo procesar la consulta correctamente.";
+                    }
+                } catch (error) {
+                    respuestaBot = "No encontré una respuesta local y no se detectó una instancia activa en el servidor local (Puerto 8000).";
+                }
             }
             
-            await new Promise(resolve => setTimeout(resolve, 500));
+            await new Promise(resolve => setTimeout(resolve, 350));
             
             loadingIndicator.classList.add('hidden');
             await agregarMensajeEfectoMaquina(respuestaBot);
